@@ -78,22 +78,30 @@
     width: 100%;
     height: auto;
     .searchbar{
-        // background-image: url('https://www.deviantart.com/annjoanneblaze/art/Sewer-background-597594017');
-        // background-image: url('../img/4453379.jpg');
-        background-position: top;
+        background-color: black;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-top: 140px;
-        padding: 0 90px;
+        margin-top: 150px;
+        padding: 40px;
         width: 100%;
-        height: 100px;
-        background-color: lightslategrey;
+        height: 80px;
         border-radius: 30px;
+        border: 5px solid #333333;
+        font-size: 22px;
         input {
-            background-color: transparentize(rgba(#fff, 0.9), 0.5);
+            width: 100%;
+            background-color: transparentize(rgba(#fff, 0.9), 0.9);
             border: none;
             padding: 5px 15px;
+            font-weight: bold;
+            &:focus{
+                outline: none;
+                &::placeholder{
+                    color: black;
+                }
+            }
+            color: cornflowerblue ;
         }
         .icon {
             font-size: 24px;

@@ -5,7 +5,7 @@ const Search = () => {
     <div id="search">
       <div className="container">
         <div className="searchbar">
-          <input type="text" value="" placeholder='Search'  />
+          <input type="text" placeholder='Search'  />
           <i className="fa-solid fa-magnifying-glass icon"></i>
         </div>
         <div className="row d-flex justify-content-evenly g-4 mt-1">
