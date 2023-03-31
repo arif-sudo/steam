@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 const SingleSupport = ({ element }: any) => {
     return (
         <>
-            {console.log(element.title)}
             <div className="col-12">
                 <div className="card w-75 px-3" >
                     <img src={element.icon} height={40} width={40} className="card-img-top w-auto" alt="err" />

@@ -11,7 +11,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useMediaQuery } from 'usehooks-ts';
 
-import Slider from "react-slick";
 import Card from 'react-bootstrap/Card';
 
 
@@ -19,40 +18,6 @@ const Hero1 = () => {
     const isMedia = useMediaQuery('(max-width: 767px)')
     const isMediaImagesR1 = useMediaQuery('(max-width: 1057px)')
     const isMediaImageR = useMediaQuery('(max-width: 1364px)')
-    var settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: true
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      };
     return (
         <>
             <div id="hero1">
@@ -251,10 +216,18 @@ const Hero1 = () => {
                     </div>
                     <div className="hero1_row2">
                         {/* change to swiper */}
-                            <Slider {...settings} >
-                                <Card >
-                                    <Card.Img variant="top" height={300} src="https://cdn.akamai.steamstatic.com/steam/spotlights/f5162cad6d5eb114fff01240/spotlight_image_english.jpg?t=1679955084" />
-                                    <Card.Body style={{backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")`}} className="secondary" >
+                        <Swiper
+                            modules={[Navigation, Pagination, Scrollbar, A11y]}
+                            spaceBetween={50}
+                            slidesPerView={4}
+                            className="myslide"
+                            navigation
+                            pagination={{ clickable: true }}
+                            scrollbar={{ draggable: true }}>
+                            <SwiperSlide className='mt-5 d-flex justify-content-center'>
+                                <Card style={{ width: "300px" }} >
+                                    <Card.Img variant="" src="https://cdn.akamai.steamstatic.com/steam/spotlights/f5162cad6d5eb114fff01240/spotlight_image_english.jpg?t=1679955084" />
+                                    <Card.Body style={{ backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")` }} className="secondary" >
                                         <Card.Title>Midweek madness</Card.Title>
                                         <Card.Text>
                                             offer ends 6 Apr @ 9:00pm.
@@ -268,12 +241,15 @@ const Hero1 = () => {
                                         </div>
                                     </Card.Body>
                                 </Card>
-                                <Card >
-                                    <Card.Img variant="top" height={300} src="https://cdn.akamai.steamstatic.com/steam/spotlights/1e447918d95f6620346dcf38/spotlight_image_english.jpg?t=1678813872 " />
-                                    <Card.Body style={{backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")`}} className="secondary" >
+                            </SwiperSlide>
+
+                            <SwiperSlide className='mt-5 d-flex justify-content-center'>
+                                <Card style={{ width: "300px" }}>
+                                    <Card.Img variant="top"  src="https://cdn.akamai.steamstatic.com/steam/spotlights/1e447918d95f6620346dcf38/spotlight_image_english.jpg?t=1678813872 " />
+                                    <Card.Body style={{ backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")` }} className="secondary" >
                                         <Card.Title>Midweek madness</Card.Title>
                                         <Card.Text>
-                                        offer ends 8 Apr @ 9:00pm.
+                                            offer ends 8 Apr @ 9:00pm.
                                         </Card.Text>
                                         <div className="d-flex align-items-center">
                                             <div className='discount'>-40% </div>
@@ -284,12 +260,15 @@ const Hero1 = () => {
                                         </div>
                                     </Card.Body>
                                 </Card>
-                                <Card >
-                                    <Card.Img variant="top" height={300} src="https://cdn.akamai.steamstatic.com/steam/spotlights/c0d9a71b51cc40c78195412c/spotlight_image_english.jpg?t=1678905831" />
-                                    <Card.Body style={{backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")`}} className="secondary" >
+                            </SwiperSlide>
+
+                            <SwiperSlide className='mt-5 d-flex justify-content-center'>
+                                <Card style={{ width: "300px" }}>
+                                    <Card.Img variant="top"  src="https://cdn.akamai.steamstatic.com/steam/spotlights/c0d9a71b51cc40c78195412c/spotlight_image_english.jpg?t=1678905831" />
+                                    <Card.Body style={{ backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")` }} className="secondary" >
                                         <Card.Title>Midweek madness</Card.Title>
                                         <Card.Text>
-                                        offer ends 3 Apr @ 9:00pm.
+                                            offer ends 3 Apr @ 9:00pm.
                                         </Card.Text>
                                         <div className="d-flex align-items-center">
                                             <div className='discount'>-20% </div>
@@ -300,11 +279,15 @@ const Hero1 = () => {
                                         </div>
                                     </Card.Body>
                                 </Card>
-                                <Card >
-                                    <Card.Img variant="top" height={300} src="https://cdn.akamai.steamstatic.com/steam/spotlights/1f7a37d631c3bdc25e4487e0/spotlight_image_english.jpg?t=1679091511" />
-                                    <Card.Body style={{backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")`}} className="secondary" >
+                            </SwiperSlide>
+
+                            <SwiperSlide className='mt-5 d-flex justify-content-center'>
+                                <Card style={{ width: "300px" }}>
+                                    <Card.Img variant="top"  src="https://cdn.akamai.steamstatic.com/steam/spotlights/1f7a37d631c3bdc25e4487e0/spotlight_image_english.jpg?t=1679091511" />
+                                    <Card.Body style={{ backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")` }} className="secondary" >
                                         <Card.Title>Midweek madness</Card.Title>
                                         <Card.Text>
+                                        offer ends 5 Apr @ 9:00pm.
                                         </Card.Text>
                                         <div className="d-flex align-items-center">
                                             <div className='discount'>-20% </div>
@@ -315,10 +298,11 @@ const Hero1 = () => {
                                         </div>
                                     </Card.Body>
                                 </Card>
-                                
-                                                                
-                                
-                            </Slider>   
+                            </SwiperSlide>
+
+
+
+                        </Swiper>
                     </div>
                 </div>
             </div>

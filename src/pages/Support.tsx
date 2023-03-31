@@ -1,31 +1,21 @@
 import React from 'react'
 import Navbar0 from '../components/Navbar0'
 import SingleSupport from '../singlecomponents/SingleSupport'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useContext} from 'react'
 
-interface ItemType {
-  map(arg0: (element: any, index: number) => JSX.Element): React.ReactNode
-  id: number;
-  title: string;
-  playtime: string;
-  purchased: string;
-  icon: string;
-  background: string;
+import { SupportContext } from '../context/SupportContext'
 
-}
+// interface ItemType {
+//   id: number;
+//   title: string;
+//   playtime: string;
+//   purchased: string;
+//   icon: string;
+//   background: string;
+// }
 
 const Support: React.FC = () => {
-  const [supItem, setSupItem] = useState<ItemType[]>([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get('https://mocki.io/v1/1ef72dc3-cad0-46b6-ab28-4e8a1d154fe0')
-      setSupItem(response.data)
-    }
-    getData()
-  }, [])
-
+  const [supItem, ] = useContext<any>(SupportContext)
 
   return (
     <>
@@ -40,7 +30,7 @@ const Support: React.FC = () => {
             </div>
           </div>
           <div className="row g-4">
-            {supItem.map((element, index) => (
+            {supItem.map((element:any, index:number) => (
               <SingleSupport element={element} key={index} />
             ))}
           </div>
