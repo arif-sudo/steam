@@ -181,8 +181,9 @@
 
 #hero1 {
     width: 100%;
-    height: 200vh;
+    height: auto;
     margin-top: 155px;
+    margin-bottom: 100px;
     
 .swiper-button-next, .swiper-button-prev, .swiper-scrollbar-drag  {
     display: none !important;
@@ -236,6 +237,9 @@
         }
         
     }
+}
+//hero2
+#hero2{
     .discount {
         display: flex;
         align-items: center;
