@@ -569,3 +569,28 @@
     }
     
 }
+
+#support{
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    h2 {
+        font-size: 40px;
+    }
+    h3, p{
+        margin-top: 20px;
+        color: #5eafde;
+    }
+    .card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 40rem;
+        height: auto;
+        background-color: #445468;
+        &:hover{
+            background-color: cornflowerblue;
+        }
+    }
+}

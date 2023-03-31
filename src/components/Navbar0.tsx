@@ -52,7 +52,7 @@ const Navbar0 = () => {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#pricing">Chat</Nav.Link>
-            <Nav.Link href="#pricing">Support</Nav.Link>
+            <Nav.Link href="#pricing"><NavLink to="/support">Support</NavLink></Nav.Link>
           </Nav>
           <Nav>
             

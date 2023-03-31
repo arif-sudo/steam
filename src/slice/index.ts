@@ -5,7 +5,6 @@ const initialState = {
     mode: "light",
     nav: "navlight"
 }
-//why mode has one more mode inside it 
 type stateType = {
     mode: string,
     nav: string

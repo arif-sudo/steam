@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import About from '../pages/About'
 import Main from '../pages/Main'
+import Support from '../pages/Support'
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
       <Routes>
       <Route path='/' element={<Main/>}></Route>
         <Route path='/about' element={<About/>}></Route>
+        <Route path='/support' element={<Support/>}></Route>
       </Routes>
     </BrowserRouter>
     
