@@ -288,14 +288,13 @@
 #hero3 {
     width: 100%;
     height: 80vh;
-    margin-top: 200px;
+    margin-top: 400px;
     .swipe_hero3{
         display: flex;
-        justify-content: center;    
+        justify-content: center;
         align-items: center;
         margin: 0 250px; //mediaquery
         height: auto;
-        
     }
     .card{
         position: relative;
@@ -309,7 +308,6 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        
     }
     .gradient {
         position: absolute;
