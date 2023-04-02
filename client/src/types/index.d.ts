@@ -9,3 +9,5 @@ declare module '*.png' {
 declare module 'aos'
 
 declare module 'react-slick'
+
+declare module '@reduxjs/toolkit'
