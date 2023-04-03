@@ -16,7 +16,57 @@
 
 //login 
 #login {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #171A21;
+    padding: 10px 100px;
     
+    .row{
+        width: 60%;
+        .header{
+            .icon{
+                font-size: 40px;
+                margin-right: 10px;
+            }
+            p {
+                text-transform: uppercase;
+                color: #06BFFF;
+            }
+        }
+        #form_info{
+            color: black;
+            input {
+                border: none !important;
+                border-radius: 0;
+                background-color: #31343b;
+                color: cornflowerblue
+            }
+        }
+        .login_button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            button{
+                width: 200px;
+                height: 50px;
+                border: none;
+                color: white;
+                font-weight: bold;
+                background: linear-gradient(to right, #06BFFF, #2B74FF);
+            }
+        }
+    }
+}
+@media only screen and (max-width: 967px) {
+    #login{
+        padding: 10px !important;
+        .row{
+            width: 100% !important;
+        }
+    }
 }
 
 //header navbar
@@ -82,7 +132,7 @@
         align-items: center;
         justify-content: space-between;
         margin-top: 150px;
-        padding: 40px;
+        padding: 20px 40px;
         width: 100%;
         border-radius: 30px;
         border: 5px solid #333333;
@@ -287,8 +337,8 @@
 //
 #hero3 {
     width: 100%;
-    height: 80vh;
-    margin-top: 400px;
+    height: 50vh; // auto
+    margin-top: 200px;
     .swipe_hero3{
         height: auto;
     }
