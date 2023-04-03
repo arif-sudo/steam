@@ -11,3 +11,7 @@ declare module 'aos'
 declare module 'react-slick'
 
 declare module '@reduxjs/toolkit'
+
+declare module "swiper";
+declare module "swiper/react";
+declare module "react.bootstrap";

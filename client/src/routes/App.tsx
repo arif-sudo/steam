@@ -5,6 +5,7 @@ import Main from '../pages/Main'
 import Support from '../pages/Support'
 import SupportDetails from '../detailscomponents/SupportDetails'
 import { SupportProvider } from '../context/SupportContext'
+import Login from '../components/Login'
 const App = () => {
 
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <SupportProvider>
         <></>
       <Routes>
+      <Route path='/login' element={<Login/>}></Route>
       <Route path='/' element={<Main/>}></Route>
         <Route path='/about' element={<About/>}></Route>
         <Route path='/support' element={<Support/>}></Route>

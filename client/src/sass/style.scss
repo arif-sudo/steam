@@ -1,11 +1,7 @@
 @import "light";
 @import "dark";
-//body
-// body {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
+
+
 #root {
     width: 100%;
     height: auto;// about page hright pb
@@ -18,9 +14,12 @@
     }
 }
 
+//login 
+#login {
+    
+}
+
 //header navbar
-
-
 #globe {
     display: flex;
     flex-direction: row;
@@ -215,6 +214,7 @@
 
     .hero1_content{
         display: flex;
+        justify-content: center;
         color: lightblue;
         img {
             border-radius: 10px;
@@ -290,10 +290,6 @@
     height: 80vh;
     margin-top: 400px;
     .swipe_hero3{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 250px; //mediaquery
         height: auto;
     }
     .card{
@@ -318,6 +314,9 @@
     .swiper-button-next, .swiper-button-prev, .swiper-scrollbar-drag  {
         position: absolute;
         color: white !important;
+    }
+    .swiper{
+        margin: 0 150px;
     }
     .swiper-pagination-bullet {
         background-color: lightblue !important;
