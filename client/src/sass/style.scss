@@ -24,24 +24,40 @@
     padding: 10px 100px;
     
     .row{
-        width: 60%;
-        .header{
-            .icon{
-                font-size: 40px;
-                margin-right: 10px;
-            }
-            p {
-                text-transform: uppercase;
-                color: #06BFFF;
-            }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-size: cover;
+        // padding: 100px 0;
+        width: 80%;
+        img {
+            height: 50vh;
+            object-fit: cover;
+            filter: brightness(25%);
         }
-        #form_info{
-            color: black;
-            input {
-                border: none !important;
-                border-radius: 0;
-                background-color: #31343b;
-                color: cornflowerblue
+        .header_form{
+            width: 80%;
+            position: absolute;
+            .header{
+                margin-bottom: 50px;
+                .icon{
+                    font-size: 40px;
+                    margin-right: 10px;
+                }
+                p {
+                    text-transform: uppercase;
+                    color: #06BFFF;
+                }
+            }
+            #form_info{
+                color: black;
+                input {
+                    border: none !important;
+                    border-radius: 0;
+                    background-color: #31343b;
+                    color: cornflowerblue
+                }
             }
         }
         .login_button{
@@ -290,6 +306,21 @@
 //hero2
 #hero2{
     margin: 50px 0;
+    .swiper-button-next, .swiper-button-prev, .swiper-scrollbar-drag  {
+        position: absolute;
+        color: white !important;
+    }
+    .swiper{
+        display: flex;
+        justify-content: center;
+        margin: 0 10px;
+    }
+    .swiper-pagination-bullet {
+        background-color: lightblue !important;
+    }
+    .swiper-scrollbar {
+        display: none;
+    }
     .discount {
         display: flex;
         align-items: center;

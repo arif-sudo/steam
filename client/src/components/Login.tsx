@@ -9,6 +9,8 @@ const Login = () => {
     <div id='login'>
       <div className="container d-flex justify-content-center">
         <div className="row">
+          <img src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/clans/39049601/955b0999b82b58d009ba41e9bd85e264c4d7e63a.jpg" alt="err" />
+          <div className="header_form">
           <div className="header">
             <div className="d-flex">
               <i className="fa-brands fa-steam icon"></i><h1>Steam</h1>
@@ -27,6 +29,7 @@ const Login = () => {
             <div className="login_button">
               <button>Sign in</button>
             </div>
+          </div>
           </div>
         </div>
 
