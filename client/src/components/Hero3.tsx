@@ -11,7 +11,6 @@ const Hero3 = () => {
     return (
         <div id='hero3'>
             <Swiper
-                className='swipe_hero3 text-center'
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={10}
                 slidesPerView={4}
