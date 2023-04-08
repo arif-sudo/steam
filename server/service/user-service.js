@@ -14,19 +14,29 @@ class UserService{
             throw new Error(`User with email address ${email} already exsists`)//iff there is a user we throw an error
         }
 
-    
-        const hashPassword = await bcrypt.hash(password, 3);
+        let stringPassword = password.toString() 
+        const hashPassword = await bcrypt.hash(stringPassword, 3);
         const activationLink = crypto.randomUUID()
         
-        const user = await UserModel.create({email, password: hashPassword});
+        const user = await UserModel.create({email, password: hashPassword, activationLink});
         await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)//popravim
         
-        const userDto = new UserDto(user); //id email isActivated
+        const userDto =  new UserDto(user); //id email isActivated
         const tokens = tokenService.generateTokens({...userDto})//generateToken func expects an object not reference thats why we using spread operator
         
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
 
         return {...tokens,  user: userDto}// refresh , acces token, and user informarion are saved/returned
+    }
+
+    async activate(activationLink){
+        const user = await UserModel.findOne({activationLink});
+        if(!user){
+            throw new Error("Uncorrect activation link");
+        }
+        user.isActivated = true;
+        await user.save();
+
     }
 }
 
