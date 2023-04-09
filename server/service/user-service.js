@@ -6,15 +6,17 @@ import mailService from "./mail-service.js";
 import tokenService from "./token-service.js";
 import UserDto from "../dtos/user-dtos.js";
 
+import ApiError from "../exceptions/api-error.js";
+
 class UserService{
     async registration(email, password){
         const candidate = await UserModel.findOne({email});//first we testing if there is a user 
 
         if (candidate){
-            throw new Error(`User with email address ${email} already exsists`)//iff there is a user we throw an error
+            throw ApiError.BadRequest(`User with email address ${email} already exsists`)//iff there is a user we throw an error
         }
 
-        let stringPassword = password.toString() 
+        let stringPassword = password //.toString() 
         const hashPassword = await bcrypt.hash(stringPassword, 3);
         const activationLink = crypto.randomUUID()
         
@@ -32,7 +34,7 @@ class UserService{
     async activate(activationLink){
         const user = await UserModel.findOne({activationLink});
         if(!user){
-            throw new Error("Uncorrect activation link");
+            throw  ApiError.BadRequest("Uncorrect activation link");
         }
         user.isActivated = true;
         await user.save();
