@@ -1,28 +1,30 @@
 import React from 'react'
-import { Col,Card,Button } from 'react-bootstrap'
+import { Col, Card } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 
-interface PropType{
-    title:string;
-    photo:string;
-    price:number;
+interface PropType {
+    title: string;
+    photo: string;
+    price: number;
 }
 
 
-const SingleCard:React.FC<PropType> = (props) => {
-  return (
-    <Col sm="12" md="4">
-    <Card>
-      <Card.Img height={300} variant="top" src={props.photo} />
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text>
-         {props.price}
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-  </Col>
-  )
+const SingleCard: React.FC<PropType> = (props) => {
+    return (
+        <Col sm="12" className='d-flex justify-content-end'>
+            <LinkContainer to="/about" >
+                <Card className='searchcard' >
+                    <Card.Img src={props.photo} className='img-fluid' />
+                    <Card.Body>
+                        <h5>{props.title}</h5>
+                        <p>
+                            Price: {props.price}
+                        </p>
+                    </Card.Body>
+                </Card>
+            </LinkContainer>
+        </Col>
+    )
 }
 
 export default SingleCard

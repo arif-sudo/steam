@@ -11,6 +11,23 @@ class TokenService{
         }
     }
 
+    validateAccessToken(token){
+        try{
+            const userData = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+            return userData;
+        }catch(err){
+            return null;
+        }
+    }
+    validateRefreshToken(token){
+        try{
+            const userData = jwt.verify(token, process.env.JWT_REFRESH_SECRET);
+            return userData;
+        }catch(err){
+            return null;
+        }
+    }
+
     async saveToken(userId, refreshToken){
         const tokenData = await TokenModel.findOne({user: userId});
         if (tokenData){
@@ -21,6 +38,16 @@ class TokenService{
         const token = await TokenModel.create({user: userId, refreshToken});//user logining for the first time
 
         return token;
+    }
+
+    async removeToken(refreshToken){
+        const tokenData = await TokenModel.deleteOne({refreshToken});
+        return tokenData
+    }
+
+    async findToken(refreshToken){
+        const tokenData = await TokenModel.findOne({refreshToken});
+        return tokenData
     }
 }
 

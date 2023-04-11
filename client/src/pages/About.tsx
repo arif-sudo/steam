@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar0 from '../components/Navbar0'
 import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import aos from 'aos'
@@ -38,7 +37,7 @@ const About = () => {
     }, []);
     return (
         <>
-            <Navbar0 />
+            {/* <Navbar0 /> */}
             <div id='about'>
                 <div className="container">
                     <div className="row d-flex align-items-center justify-content-center">

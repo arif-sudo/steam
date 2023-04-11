@@ -38,21 +38,11 @@ const Navbar0 = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#features">Store</Nav.Link>
-            <Nav.Link href="#pricing">Community</Nav.Link>
+            <Nav.Link ><NavLink to="/products">Products</NavLink></Nav.Link>
             <Nav.Link ><NavLink to="/about">About</NavLink></Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#pricing">Chat</Nav.Link>
-            <Nav.Link href="#pricing"><NavLink to="/support">Support</NavLink></Nav.Link>
+            <Nav.Link ><NavLink to="/cart">Cart</NavLink></Nav.Link>
+            <Nav.Link >Chat</Nav.Link>
+            <Nav.Link ><NavLink to="/support">Support</NavLink></Nav.Link>
           </Nav>
           <Nav>
             

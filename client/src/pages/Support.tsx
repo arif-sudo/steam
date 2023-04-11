@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar0 from '../components/Navbar0'
 import SingleSupport from '../singlecomponents/SingleSupport'
 import { useContext} from 'react'
 
@@ -19,7 +18,6 @@ const Support: React.FC = () => {
 
   return (
     <>
-      <Navbar0 />
       <div id="support">
         <div className="container">
           <div className="row d-flex flex-column">

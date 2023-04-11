@@ -21,6 +21,7 @@
     width: 100%;
     height: 100vh;
     background-color: #171A21;
+    background-image: url('https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg');
     padding: 10px 100px;
     
     .row{
@@ -29,18 +30,12 @@
         justify-content: center;
         position: relative;
         background-size: cover;
-        // padding: 100px 0;
         width: 80%;
-        img {
-            height: 50vh;
-            object-fit: cover;
-            filter: brightness(25%);
-        }
         .header_form{
             width: 80%;
             position: absolute;
             .header{
-                margin-bottom: 50px;
+                margin-bottom: 20px;
                 .icon{
                     font-size: 40px;
                     margin-right: 10px;
@@ -84,7 +79,10 @@
         }
     }
 }
-
+//games
+@import 'singlegame';
+@import 'game';
+@import 'cart';
 //header navbar
 #globe {
     display: flex;
@@ -171,11 +169,37 @@
             font-size: 24px;
         }
     }
+    .searchcard{
+        margin: 10px 0;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row;
+        width: 400px;
+        height: auto;
+        background-color: black;
+        img{
+            width: 400px !important;
+            height: 200px !important;
+        }
+        h5{
+            font-size: 16px !important;
+        }
+        p {
+            font-size: 13px;
+        }
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding:  0 10px;
+            
+        }
+    }
 }
 .search_section{
     position: relative;
     overflow: hidden;
-    padding: 0;
+    padding: 0 !important;
     display: flex;
     flex-direction: column;
     background-repeat: no-repeat;
