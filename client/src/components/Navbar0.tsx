@@ -22,8 +22,9 @@ const Navbar0 = () => {
 
 
   useEffect(() => {
-    const root = document.getElementById('root')
+    const root:any = document.querySelector('#root')
     if (root) root.className = mode
+
     if (navInput){ 
       navInput.current?.setAttribute('id', nav)
     }

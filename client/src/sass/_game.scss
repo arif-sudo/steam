@@ -1,9 +1,13 @@
 #games {
+    background-image: url('https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg');
     width: 100%;
-    height: auto;
+    height: 200vh; //auto
     .col {
         margin-top: 80px;
         display: flex;
         justify-content: center;
+        h1 {
+            font-size: 58px;
+        }
     }
 }

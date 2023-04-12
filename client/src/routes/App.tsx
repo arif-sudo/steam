@@ -11,6 +11,8 @@ import Navbar0 from '../components/Navbar0'
 import Games from '../components/Games'
 import { CartProvider } from "react-use-cart";
 import Cart from '../components/Cart'
+
+
 const App = () => {
 
   return (
