@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import SingleCard from '../singlecomponents/SingleSearch';
-
+import { useAppSelector } from '../store';
 interface ProductsType {
   id: number;
   title: string;
@@ -19,6 +19,10 @@ const Search:React.FC = () => {
   const [game, setGame] = useState<ProductsType[]>([]);
   const [query, setQuery] = useState<string>('');
   const [check, setCheck] = useState<string>('');
+  const { lang } = useAppSelector(state => state.auth)
+  const t = lang === 'en';
+
+  
 
   useEffect(()=>{
     axios.get("https://fakestoreapi.com/products").then((res: any) => {
@@ -32,7 +36,7 @@ const Search:React.FC = () => {
         <div className="searchbar">
           <input onChange={(e:any)=>{
             setQuery(e.target.value);
-            setCheck(e.target.value)}} type="text" placeholder='Search'  />
+            setCheck(e.target.value)}} type="text" placeholder={t ? "Search" : "Axtarın"}  />
           <i className="fa-solid fa-magnifying-glass icon"></i>
         </div>
         <div className="row my-5">

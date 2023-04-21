@@ -21,8 +21,8 @@ export const authSlice = createSlice({
         setNav(state: stateType){
             state.nav = state.nav === "navlight" ? "navdark": "navlight"
         },
-        setLang(state: stateType){
-            state.lang = state.lang === "en" ? "az" : "en"
+        setLang(state: stateType, action: { payload: string; }){
+            state.lang = action.payload
         }
     }
 })
