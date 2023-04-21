@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Col } from 'react-bootstrap'
 import { useCart } from 'react-use-cart'
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/saga-green/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 interface PropType {
     item: any;
@@ -14,21 +16,10 @@ interface PropType {
 
 const SingleGame: React.FC<PropType> = (props) => {
     const { addItem } = useCart();
-
-    const notify = () =>
-        toast.success("🦄 Product added", {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
-
+    const toast: any = useRef(null)
     return (
         <Col sm="6" md="4" className='singlegame'>
+            <Toast ref={toast} position="bottom-right" />
             <div className='card'>
                 <img src={props.photo} alt='err' />
                 <div className='cartinfo'>
@@ -43,23 +34,12 @@ const SingleGame: React.FC<PropType> = (props) => {
                         </div>
                     </div>
 
-                    <button className='addto' onClick={() => {
-                        notify();
-                        addItem(props.item)
-                    }}>Add to Cart
+                    <button className='addto'
+                        onClick={() => {
+                            toast.current.show({ severity: 'success', summary: 'Message', detail: 'Message Content', life: 2500 });
+                            addItem(props.item)
+                        }}>Add to Cart
                     </button>
-                    {/* <ToastContainer
-                        position="bottom-right"
-                        autoClose={5000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                        theme="colored"
-                    /> */}
                 </div>
             </div>
         </Col>

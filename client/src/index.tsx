@@ -11,9 +11,14 @@ import { PersistGate } from "redux-persist/integration/react"
 import store from './store';
 import { persistor } from './store';
 
+import './i18n'
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+
 
 root.render(
   <React.StrictMode>

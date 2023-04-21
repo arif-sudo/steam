@@ -3,11 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     mode: "light",
-    nav: "navlight"
+    nav: "navlight",
+    lang: "en"
 }
 type stateType = {
     mode: string,
-    nav: string
+    nav: string,
+    lang: string
 }
 export const authSlice = createSlice({
     name: "auth",
@@ -18,10 +20,13 @@ export const authSlice = createSlice({
         },
         setNav(state: stateType){
             state.nav = state.nav === "navlight" ? "navdark": "navlight"
+        },
+        setLang(state: stateType){
+            state.lang = state.lang === "en" ? "az" : "en"
         }
     }
 })
 
-export const {setMode, setNav}  = authSlice.actions
+export const {setMode, setNav, setLang}  = authSlice.actions
 
 export default authSlice.reducer

@@ -16,3 +16,4 @@ declare module "swiper";
 declare module "swiper/react";
 declare module "react.bootstrap";
 declare module 'react-router-bootstrap'
+declare module "primereact/toast";

@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap'
 import { useCart } from 'react-use-cart'
 import { useMediaQuery } from 'usehooks-ts'
+
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/saga-green/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+
 const Cart = () => {
+    const toastRemove: any = useRef(null)
     const {
         items,
-        cartTotal,
+        // cartTotal,
         isEmpty,
         updateItemQuantity,
-        totalUniqueItems,
+        // totalUniqueItems,
         removeItem,
         emptyCart,
 
@@ -17,10 +24,11 @@ const Cart = () => {
 
 
     return isEmpty
-        ? <div className="emptycart"><img src="https://cdn-icons-png.flaticon.com/512/4555/4555971.png" alt="err" /></div>
+        ? <div className="emptycart"><img src="https://www.qrcardboard.com/images/cart.gif?v=01" alt="err" /></div>
         : (
             <div id='cart'>
                 <Container>
+                    <Toast  ref={toastRemove}  /> 
                     <h1 className='mb-5'>Your Shopping Cart</h1>
                     <Row className="g-5">
                         {items.map((item: any) => (
@@ -51,7 +59,11 @@ const Cart = () => {
                                         <Button onClick={() => updateItemQuantity(item.id, item.quantity + 1)} >+</Button>
                                     </Col>
                                     <Col>
-                                        <button className='del' onClick={() => removeItem(item.id)} >DEL</button>
+                                        <button className='del' onClick={() => {
+                                            toastRemove.current.show({severity:'error', summary: 'Error Message', detail:'Message Content', life: 3000});
+                                            removeItem(item.id);
+                                        }}> DEL</button>
+                                        
                                     </Col>
                                     <Col className=' item_quantity'>
                                         Count: {item.quantity}

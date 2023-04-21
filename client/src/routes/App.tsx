@@ -7,10 +7,14 @@ import SupportDetails from '../detailscomponents/SupportDetails'
 import { SupportProvider } from '../context/SupportContext'
 import Login from '../components/Login'
 import Navbar0 from '../components/Navbar0'
-// import NotFound from '../components/NotFound'
-import Games from '../components/Games'
+import NotFound from '../pages/NotFound'
+import Games from '../pages/Games'
 import { CartProvider } from "react-use-cart";
-import Cart from '../components/Cart'
+import Cart from '../pages/Cart'
+import BlogList from '../components/BlogList'
+import AddBlog from '../pages/admin/update/AddBlog'
+import EditBlog from '../pages/admin/update/EditBlog'
+import Dashboard from '../pages/admin/Dashboard'
 
 
 const App = () => {
@@ -28,10 +32,13 @@ const App = () => {
         <Route path='/about' element={<About/>}></Route>
         <Route path='/support' element={<Support/>}></Route>
         <Route path='/support/:id' element={<SupportDetails/>}></Route>
-        <Route path='/products' element={<Games/>}></Route>
+        <Route path='/games' element={<Games />}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
-        {/* <Route path='*' element={<NotFound/>}></Route> */}
-        {/*<Route path='/games/:id' element={<SupportDetails/>}></Route> */}
+        <Route path='/blog' element={<BlogList />}></Route>
+        <Route path='/addblog' element={<AddBlog />}></Route>
+        <Route path='/admin' element={<Dashboard />} />
+        <Route path='/editblog/:id' element={<EditBlog />}></Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
       </SupportProvider>
       </CartProvider>
