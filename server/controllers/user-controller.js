@@ -11,7 +11,7 @@ class UserController{
             const errors = validationResult(req);
             if(!errors.isEmpty()){
                 return next(ApiError.BadRequest("Validation error", errors.array()))
-            }
+            } 
             const {email, password} = req.body;
             const userData = await userService.registration(email, password)//tokens & user data
             res.cookie('refreshToken', userData.refreshToken, {maxAge: 30*24*60*60*1000, httpOnly: true})
@@ -49,7 +49,6 @@ class UserController{
     async activate(req, res, next){
         try{
             const actiavationLink = req.params.link;
-            // res.json([actiavationLink])
             await userService.activate(actiavationLink);
             return res.redirect(process.env.CLIENT_URL)
         }catch(err){

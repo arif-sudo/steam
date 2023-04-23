@@ -13,7 +13,7 @@ class UserService{
         const candidate = await UserModel.findOne({email});//first we testing if there is a user 
 
         if (candidate){
-            throw ApiError.BadRequest(`User with email address ${email} already exsists`)//iff there is a user we throw an error
+            throw ApiError.BadRequest( `User with email address ${email} already exsists`)//iff there is a user we throw an error
         }
 
         let stringPassword = password //.toString() 
