@@ -9,6 +9,7 @@ class TokenService{
             accessToken,
             refreshToken
         }
+        // TypeError: tokenService.generateTokens is not a constructor
     }
 
     validateAccessToken(token){

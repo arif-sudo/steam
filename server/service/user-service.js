@@ -52,7 +52,7 @@ class UserService{
             throw ApiError.BadRequest("Uncorrect password")
         } 
         const userDto = new UserDto(user);
-        const tokens = new tokenService.generateTokens({...userDto});
+        const tokens =  tokenService.generateTokens({...userDto});
 
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
         return {...tokens,  user: userDto}
