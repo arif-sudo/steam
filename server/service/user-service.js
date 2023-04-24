@@ -21,7 +21,7 @@ class UserService{
         const activationLink = crypto.randomUUID()
         
         const user = await UserModel.create({email, password: hashPassword, activationLink});
-        await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)//popravim
+        // await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)//popravim
         
         const userDto =  new UserDto(user); //id email isActivated
         const tokens = tokenService.generateTokens({...userDto})//generateToken func expects an object not reference thats why we using spread operator
