@@ -49,7 +49,7 @@ class UserService{
         const isPassEquals = await bcrypt.compare(password, user.password); 
 
         if(!isPassEquals){
-            throw ApiError.BadRequest("Uncorrect password")
+            throw ApiError.BadRequest("Incorrect password")
         } 
         const userDto = new UserDto(user);
         const tokens =  tokenService.generateTokens({...userDto});
@@ -69,7 +69,7 @@ class UserService{
         }
         const userData = tokenService.validateRefreshToken(refreshToken);
         const tokenFromDb = await tokenService.findToken(refreshToken)
-        if(!userData || tokenFromDb){
+        if(!userData || !tokenFromDb){
             throw ApiError.UnauthorizedError();
         }
         const user = await  UserModel.findById(userData.id);
@@ -80,7 +80,7 @@ class UserService{
     }
 
     async getAllUsers(){
-        const users = await UserModel.find();
+        const users = await UserModel.find();//returns all
         return users;
     }
 }
