@@ -37,7 +37,6 @@ const About = () => {
     }, []);
     return (
         <>
-            {/* <Navbar0 /> */}
             <div id='about'>
                 <div className="container">
                     <div className="row d-flex align-items-center justify-content-center">

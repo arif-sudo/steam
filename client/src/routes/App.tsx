@@ -21,29 +21,29 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <CartProvider>
-      <SupportProvider>
-        <Routes>
-         <Route path='/login' element={<Login/>}></Route>
-        </Routes>
-        <Navbar0 />
       <Routes>
-        <Route path='/' element={<Main/>}></Route>
-        <Route path='/about' element={<About/>}></Route>
-        <Route path='/support' element={<Support/>}></Route>
-        <Route path='/support/:id' element={<SupportDetails/>}></Route>
-        <Route path='/games' element={<Games />}></Route>
-        <Route path='/cart' element={<Cart/>}></Route>
-        <Route path='/blog' element={<BlogList />}></Route>
-        <Route path='/addblog' element={<AddBlog />}></Route>
-        <Route path='/admin' element={<Dashboard />} />
-        <Route path='/editblog/:id' element={<EditBlog />}></Route>
-        <Route path='*' element={<NotFound/>}></Route>
+        <Route path='/login' element={<Login />}></Route>
       </Routes>
-      </SupportProvider>
+      <CartProvider>
+        <SupportProvider>
+          <Navbar0 />
+          <Routes>
+            <Route path='/' element={<Main />}></Route>
+            <Route path='/about' element={<About />}></Route>
+            <Route path='/support' element={<Support />}></Route>
+            <Route path='/support/:id' element={<SupportDetails />}></Route>
+            <Route path='/games' element={<Games />}></Route>
+            <Route path='/cart' element={<Cart />}></Route>
+            <Route path='/blog' element={<BlogList />}></Route>
+            <Route path='/addblog' element={<AddBlog />}></Route>
+            <Route path='/admin' element={<Dashboard />} />
+            <Route path='/editblog/:id' element={<EditBlog />}></Route>
+            <Route path='*' element={<NotFound />}></Route>
+          </Routes>
+        </SupportProvider>
       </CartProvider>
     </BrowserRouter>
-    
+
   )
 }
 

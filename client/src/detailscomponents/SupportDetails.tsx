@@ -1,20 +1,17 @@
 import { useContext } from 'react'
 import { SupportContext } from '../context/SupportContext'
 import { useParams } from 'react-router-dom'
-import Navbar0 from '../components/Navbar0'
+import NotFound from '../pages/NotFound'
 const SupportDetails = () => {
-  const [supItem,] = useContext<any>(SupportContext)
+  const [supItem] = useContext<any>(SupportContext)
   const { id } = useParams()
   const details = supItem.find((element: any) => element.id === Number(id))
 
   return (
     <>
-      <Navbar0 />
       {
-        details === undefined
-          ? <h1>Loading...</h1>
-          :
-          (
+        details 
+          ? (
             <div id="support_details">
               <div className="container">
                 <div className="row d-flex flex-column">
@@ -66,6 +63,7 @@ const SupportDetails = () => {
               </div>
             </div>
           )
+          : <NotFound />
       }
     </>
   )
