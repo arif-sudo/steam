@@ -16,9 +16,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import Card from 'react-bootstrap/Card';
-
+import { useAppSelector } from '../store'
 
 const About = () => {
+    const { lang } = useAppSelector(state => state.auth)
     const isMode = useMediaQuery('(max-width: 1100px)')
     const isModeSlide = useMediaQuery('(max-width: 768px)')
     const videoEl = useRef<HTMLVideoElement>(null)
@@ -26,6 +27,8 @@ const About = () => {
         if (videoEl.current)
             videoEl.current.play()
     };
+
+    const t = lang === 'en';
 
     useEffect(() => {
         attemptPlay();
@@ -43,14 +46,14 @@ const About = () => {
                         <div className="col-sm-12 col-lg-6 left">
                             <img className='' src="https://cdn.cloudflare.steamstatic.com/store//about/logo_steam.svg" alt="" />
                             <div id="blur_box1"></div>
-                            <div className="about_subtitle">Steam is the ultimate destination for  playing, discussing, and creating games.</div>
+                            <div className="about_subtitle">{t ? "Steam is the ultimate destination for  playing, discussing, and creating games." : "Steam, oyun oynamaq, müzakirə etmək və yaratmaq üçün son yerdir."}</div>
                             <div className="online_stats">
                                 <div className="online">
-                                    <h5>ONLINE</h5>
+                                    <h5>{t ? "ONLINE" : "ONLAYN"}</h5>
                                     <p>30,231,600</p>
                                 </div>
                                 <div className="playingnow">
-                                    <h5>PLAYING NOW</h5>
+                                    <h5>{t ? "PLAYING NOW" : "INDI OYNAYIR"}</h5>
                                     <p>8,466,295</p>
                                 </div>
                             </div>
@@ -62,9 +65,9 @@ const About = () => {
                         </div>
                     </div>
                     <div className="about_body">
-                        <h3 className='text-center'>Access Games Instantly</h3>
-                        <p className='text-center'>With nearly 30,000 games from AAA to indie and everything in-between. Enjoy exclusive deals, automatic game updates, and other great perks.</p>
-                        <Link to='/' ><h5>Browse the store &rarr;</h5></Link>
+                        <h3 className='text-center'>{t ? "Access Games Instantly" : "Oyunlara Dərhal daxil olun"}</h3>
+                        <p className='text-center'>{t ? "With nearly 30,000 games from AAA to indie and everything in-between. Enjoy exclusive deals, automatic game updates, and other great perks." : "AAA-dan indie-ə qədər təxminən 30.000 oyun və aralarındakı hər şey. Eksklüziv sövdələşmələrdən, avtomatik oyun yeniləmələrindən və digər möhtəşəm bonuslardan həzz alın." }</p>
+                        <Link to='/' ><h5>{t ? "Browse the store" : "Mağazaya baxın"} &rarr;</h5></Link>
 
                         {isMode
                             ? <></>
@@ -88,9 +91,9 @@ const About = () => {
                         <div className="row about_ctas_row1 d-flex align-items-center  mt-5">
                             <div className="col-sm-12 col-md-6">
                                 <div className="ctas_community mt-5">
-                                    <h2>Join The Community</h2>
-                                    <p>Meet new people, join groups, form clans, chat in-game and more! With over 100 million potential friends (or enemies), the fun never stops.</p>
-                                    <h5>Visit the community &rarr;</h5>
+                                    <h2>{t ? "Join The Community" : "İcmaya Qoşulun"}</h2>
+                                    <p>{t ? "Meet new people, join groups, form clans, chat in-game and more! With over 100 million potential friends (or enemies), the fun never stops." : "Yeni insanlarla tanış olun, qruplara qoşulun, klanlar yaradın, oyunda söhbət edin və s.! 100 milyondan çox potensial dost (və ya düşmən) ilə əyləncə heç vaxt dayanmır."}</p>
+                                    <h5>{t ? "Visit the community": "Cəmiyyəti ziyarət edin"} &rarr;</h5>
                                 </div>
                             </div>
                             <div className="col-sm-12 col-md-6">
@@ -107,9 +110,9 @@ const About = () => {
                             </div>
                             <div className="col-sm-12 col-md-6">
                                 <div className="ctas_community mt-5">
-                                    <h2>Experience Steam Hardware</h2>
-                                    <p>We created the Steam Deck and the Valve Index headset to make gaming on the PC even better.</p>
-                                    <h5>Experience Steam Hardware &rarr;</h5>
+                                    <h2>{t ? "Experience Steam Hardware" : "Buxar Təchizatı təcrübəsi"}</h2>
+                                    <p>{t ? "We created the Steam Deck and the Valve Index headset to make gaming on the PC even better." : "Biz PC-də oyunu daha da yaxşılaşdırmaq üçün Steam Deck və Valve Index qulaqlıqlarını yaratdıq."}</p>
+                                    <h5>{t ? "Experience Steam Hardware" : "Buxar Təchizatı təcrübəsi"} &rarr;</h5>
                                 </div>
                             </div>
 
@@ -118,9 +121,9 @@ const About = () => {
                             <div className="col-sm-12 col-md-6">
                                 <div className="ctas_community mt-5">
                                     <img width={120} src="https://cdn.cloudflare.steamstatic.com/store/about/logo-steamworks.svg" alt="" />
-                                    <h2>Release your Game</h2>
-                                    <p>Steamworks is the set of tools and services that help game developers and publishers get the most out of distributing games on Steam.</p>
-                                    <h5>Experience Steam Hardware &rarr;</h5>
+                                    <h2>{t ? "Release your Game": "Oyununuzu buraxın"}</h2>
+                                    <p>{t ? "Steamworks is the set of tools and services that help game developers and publishers get the most out of distributing games on Steam." : "Steamworks, oyun tərtibatçılarına və nəşriyyatçılarına Steam-də oyunların yayılmasından maksimum yararlanmağa kömək edən alətlər və xidmətlər toplusudur."}</p>
+                                    <h5>{t ? "Experience Steam Hardware" : "Buxar Təchizatı təcrübəsi"} &rarr;</h5>
                                 </div>
                             </div>
                             <div className="col-sm-12 col-md-6">
@@ -150,11 +153,11 @@ const About = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body className=''>
-                                            <Card.Title className='feature_title'>Steam Chat</Card.Title>
+                                            <Card.Title className='feature_title'>Steam {t?"Chat":"Söhbət"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.
+                                                {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                             </Card.Text>
-                                            <h5>Learn more &rarr;</h5>
+                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -164,11 +167,11 @@ const About = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title'>Game Hubs</Card.Title>
+                                            <Card.Title className='feature_title'>{t?"Game Hubs":"Oyun mərkəzləri"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates.
+                                                {t?"Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates.":"Oyununuzla bağlı hər şey, hamısı bir yerdə. Müzakirələrə qoşulun, məzmun yükləyin və yeni yeniləmələrdən ilk siz xəbərdar olun."}
                                             </Card.Text>
-                                            <h5>Learn more &rarr;</h5>
+                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -178,11 +181,11 @@ const About = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title '>Broad Casts</Card.Title>
+                                            <Card.Title className='feature_title '>{t ? "Broad Casts":"Verlişlər"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                Stream your gameplay live with the click of a button, and share your game with friends or the rest of the community.
+                                                {t?"Stream your gameplay live with the click of a button, and share your game with friends or the rest of the community.":"Oyununuzu bir düyməyə klikləməklə canlı yayımlayın və oyununuzu dostlarınız və ya cəmiyyətin qalan hissəsi ilə paylaşın."}
                                             </Card.Text>
-                                            <h5>Learn more &rarr;</h5>
+                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -192,11 +195,12 @@ const About = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title'>Steam Workshop</Card.Title>
+                                            <Card.Title className='feature_title'>{t?"Steam Workshop":"Steam Studiyası"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.
+                                                {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                             </Card.Text>
-                                            <h5>Learn more &rarr;</h5>
+                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
+                                            {/* devamin getir !!! */}
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -233,8 +237,8 @@ const About = () => {
                         (
                             <div className="container  my-5">
                                 <div className="d-flex flex-column align-items-center justify-content-center mt-5">
-                                    <h1 className='text-center' style={{ fontSize: "70px" }}>Features</h1>
-                                    <p className='text-center' style={{ fontSize: "30px", width: "700px" }}>We are constantly working to bring new updates and features to Steam, such as:</p>
+                                    <h1 className='text-center' style={{ fontSize: "70px" }}>{t?"Features":"Funksiyalar"}</h1>
+                                    <p className='text-center' style={{ fontSize: "30px", width: "700px" }}>{t?"We are constantly working to bring new updates and features to Steam, such as:":"Biz daim Steam-ə yeni yeniləmələr və funksiyalar gətirmək üçün çalışırıq, məsələn:"}</p>
                                 </div>
                                 <div className="row mb-5">
                                     <div className="col d-flex flex-column justify-content-center align-items-center">

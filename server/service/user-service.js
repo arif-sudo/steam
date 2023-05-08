@@ -27,6 +27,7 @@ class UserService{
         const tokens = tokenService.generateTokens({...userDto})//generateToken func expects an object not reference thats why we using spread operator
         
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
+        console.log(tokens.refreshToken, 'saved in db')
 
         return {...tokens,  user: userDto}// refresh , acces token, and user informarion are saved/returned
     }
@@ -64,19 +65,23 @@ class UserService{
     }
 
     async refresh(refreshToken){
+        console.log(refreshToken)
         if (!refreshToken){
             throw ApiError.UnauthorizedError();
         }
         const userData = tokenService.validateRefreshToken(refreshToken);
         const tokenFromDb = await tokenService.findToken(refreshToken)
         if(!userData || !tokenFromDb){
+            console.log(userData)
+            console.log(tokenFromDb)
             throw ApiError.UnauthorizedError();
         }
         const user = await  UserModel.findById(userData.id);
         const userDto = new UserDto(user);
-        const tokens = new tokenService.generateTokens({...userDto});
+        const tokens = tokenService.generateTokens({...userDto});
 
-        await tokenService.saveToken(userDto.id, tokens.refreshToken)
+        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        return {...tokens, user: userDto}
     }
 
     async getAllUsers(){

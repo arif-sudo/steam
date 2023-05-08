@@ -1,0 +1,95 @@
+#search {
+    width: 100%;
+    height: auto;
+    .searchbar{
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 150px;
+        padding: 20px 40px;
+        width: 100%;
+        border-radius: 30px;
+        border: 5px solid #333333;
+        font-size: 22px;
+        input {
+            width: 100%;
+            background-color: transparentize(rgba(#fff, 0.9), 0.9);
+            border: none;
+            padding: 5px 15px;
+            font-weight: bold;
+            &:focus{
+                outline: none;
+                &::placeholder{
+                    color: black;
+                }
+            }
+            color: cornflowerblue ;
+        }
+        .icon {
+            font-size: 24px;
+        }
+    }
+    .searchcard{
+        margin: 10px 0;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row;
+        width: 400px;
+        height: auto;
+        background-color: black;
+        img{
+            width: 400px !important;
+            height: 200px !important;
+        }
+        h5{
+            font-size: 16px !important;
+        }
+        p {
+            font-size: 13px;
+        }
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding:  0 10px;
+            
+        }
+    }
+}
+.search_section{
+    // width: 100%;
+    padding: 0  !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    width: 350px !important;
+    height: 230px !important;
+    border-radius: 15px;
+    border: 2px solid #333333;
+}
+.search_group{
+    position: absolute;
+    color: white;
+    text-align: center;
+    .search_icon {
+        font-size: 50px;
+    }
+    h5 {
+        font-size: 18px;
+    }
+}
+.search_section_img {
+    filter: brightness(65%);
+    width: 100%;
+    height: 100%;
+    &:hover{
+        filter: brightness(100%);
+    }
+}

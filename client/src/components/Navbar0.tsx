@@ -44,12 +44,13 @@ const Navbar0 = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">{t ? "Store" : "Mağaza" }</Nav.Link>
+            <Nav.Link >{t ? "Store" : "Mağaza" }</Nav.Link>
             <Nav.Link ><NavLink to="/games">{t ? "Games" : "Oyunlar" }</NavLink></Nav.Link>
             <Nav.Link ><NavLink to="/about">{t ? "About" : "Haqqında" }</NavLink></Nav.Link>
             <Nav.Link >{t ? "Chat" : "Söhbət" }</Nav.Link>
             <Nav.Link ><NavLink to="/admin">Admin</NavLink></Nav.Link>
             <Nav.Link ><NavLink to="/support">{t ? "Support" : "Dəstək" }</NavLink></Nav.Link>
+            <div id="profile"><Nav.Link ><NavLink to="/cart">{t ? "Cart" : "Səbət" }<span>{totalItems}</span></NavLink></Nav.Link></div>
           </Nav>
           <Nav>
 
@@ -68,11 +69,8 @@ const Navbar0 = () => {
               <NavDropdown.Item onClick={() => dispatch(setLang('en'))} >EN</NavDropdown.Item>
             </NavDropdown>
 
-
-            <Nav.Link id='profile' >
-              <NavLink to="/cart"><i id="cart-icon" className="fa-solid fa-cart-shopping"></i><span>{totalItems}</span></NavLink>
-            </Nav.Link>
-
+            <Nav.Link className='align-self-center' ><NavLink to="/profile">{t ? "Profile" : "Profil" }</NavLink></Nav.Link>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
