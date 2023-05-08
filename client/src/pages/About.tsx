@@ -110,9 +110,9 @@ const About = () => {
                             </div>
                             <div className="col-sm-12 col-md-6">
                                 <div className="ctas_community mt-5">
-                                    <h2>{t ? "Experience Steam Hardware" : "Buxar Təchizatı təcrübəsi"}</h2>
+                                    <h2>{t ? "Experience Steam Hardware" : "Steam Təchizatı təcrübəsi"}</h2>
                                     <p>{t ? "We created the Steam Deck and the Valve Index headset to make gaming on the PC even better." : "Biz PC-də oyunu daha da yaxşılaşdırmaq üçün Steam Deck və Valve Index qulaqlıqlarını yaratdıq."}</p>
-                                    <h5>{t ? "Experience Steam Hardware" : "Buxar Təchizatı təcrübəsi"} &rarr;</h5>
+                                    <h5>{t ? "Experience Steam Hardware" : "Steam Təchizatı təcrübəsi"} &rarr;</h5>
                                 </div>
                             </div>
 
@@ -123,7 +123,7 @@ const About = () => {
                                     <img width={120} src="https://cdn.cloudflare.steamstatic.com/store/about/logo-steamworks.svg" alt="" />
                                     <h2>{t ? "Release your Game": "Oyununuzu buraxın"}</h2>
                                     <p>{t ? "Steamworks is the set of tools and services that help game developers and publishers get the most out of distributing games on Steam." : "Steamworks, oyun tərtibatçılarına və nəşriyyatçılarına Steam-də oyunların yayılmasından maksimum yararlanmağa kömək edən alətlər və xidmətlər toplusudur."}</p>
-                                    <h5>{t ? "Experience Steam Hardware" : "Buxar Təchizatı təcrübəsi"} &rarr;</h5>
+                                    <h5>{t ? "Experience Steam Hardware" : "Steam Təchizatı təcrübəsi"} &rarr;</h5>
                                 </div>
                             </div>
                             <div className="col-sm-12 col-md-6">
