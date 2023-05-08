@@ -200,7 +200,6 @@ const About = () => {
                                                 {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                             </Card.Text>
                                             <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
-                                            {/* devamin getir !!! */}
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -210,11 +209,11 @@ const About = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title '>Available on Mobile</Card.Title>
+                                            <Card.Title className='feature_title '>{t?"Available on Mobile":"Mobildə mövcuddur"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                Access Steam anywhere from your iOS or Android device with the Steam mobile app.
+                                                {t?"Access Steam anywhere from your iOS or Android device with the Steam mobile app.":"Steam mobil tətbiqi ilə iOS və ya Android cihazınızdan istənilən yerdən Steam-ə daxil olun."}
                                             </Card.Text>
-                                            <h5>Learn more &rarr;</h5>
+                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -224,11 +223,11 @@ const About = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title'>Early Access to Games</Card.Title>
+                                            <Card.Title className='feature_title'>{t?"Early Access to Games":"Oyunlara Erkən Giriş"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process.
+                                               {t?" Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process.":"Oyunlar inkişaf etdikcə onları kəşf edin, oynayın və onlarla iştirak edin. Gələcəkləri ilk görən və prosesin bir hissəsi olun."}
                                             </Card.Text>
-                                            <h5>Learn more &rarr;</h5>
+                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -247,9 +246,9 @@ const About = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body className=''>
-                                                <Card.Title className='feature_title'>Steam Chat</Card.Title>
+                                                <Card.Title className='feature_title'>{t?"Steam Chat":"Stea Söhbət"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.
+                                                    {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -259,13 +258,14 @@ const About = () => {
                                             <img src="https://cdn.cloudflare.steamstatic.com/store/about/icon-gamehubs.svg" alt="err" />
                                         </div>
                                         <Card className="feature_info text-center">
-                                            <Card.Body>
-                                                <Card.Title className='feature_title'>Game Hubs</Card.Title>
-                                                <Card.Text className='feature_text'>
-                                                    Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates.
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
+                                        <Card.Body>
+                                            <Card.Title className='feature_title'>{t?"Game Hubs":"Oyun mərkəzləri"}</Card.Title>
+                                            <Card.Text className='feature_text'>
+                                                {t?"Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates.":"Oyununuzla bağlı hər şey, hamısı bir yerdə. Müzakirələrə qoşulun, məzmun yükləyin və yeni yeniləmələrdən ilk siz xəbərdar olun."}
+                                            </Card.Text>
+                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
+                                        </Card.Body>
+                                    </Card>
                                     </div>
                                     <div className="col d-flex flex-column justify-content-center align-items-center">
                                         <div id="card_logo">
@@ -273,9 +273,9 @@ const About = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body className=''>
-                                                <Card.Title className='feature_title'>Controller Support</Card.Title>
+                                                <Card.Title className='feature_title'>{t?"Controller Support":"Nəzarətçi dəstəyi"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    Steam encourages developers to include controller support in their games including PlayStation, Xbox, and Nintendo controllers.
+                                                    {t?"Steam encourages developers to include controller support in their games including PlayStation, Xbox, and Nintendo controllers.":"Steam, tərtibatçıları PlayStation, Xbox və Nintendo kontrollerləri də daxil olmaqla oyunlarına nəzarətçi dəstəyi daxil etməyə təşviq edir."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -286,9 +286,9 @@ const About = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body>
-                                                <Card.Title className='feature_title'>Steam Workshop</Card.Title>
+                                                <Card.Title className='feature_title'>{t?"Steam Workshop":"Steam studiyası"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.
+                                                    {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -299,9 +299,9 @@ const About = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body>
-                                                <Card.Title className='feature_title '>Available on Mobile</Card.Title>
+                                                <Card.Title className='feature_title '>{t?"Available on Mobile":"Mobildə mövcuddur"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    Access Steam anywhere from your iOS or Android device with the Steam mobile app.
+                                                    {t?"Access Steam anywhere from your iOS or Android device with the Steam mobile app.":"Steam mobil tətbiqi ilə iOS və ya Android cihazınızdan istənilən yerdən Steam-ə daxil olun."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -312,9 +312,9 @@ const About = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body>
-                                                <Card.Title className='feature_title'>Early Access to Games</Card.Title>
+                                                <Card.Title className='feature_title'>{t?"Early Access to Games":"Oyunlara Erkən Giriş"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process.
+                                                    {t?"Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process.":"Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
