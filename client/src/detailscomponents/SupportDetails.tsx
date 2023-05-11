@@ -1,11 +1,15 @@
 import { useContext } from 'react'
 import { SupportContext } from '../context/SupportContext'
 import { useParams } from 'react-router-dom'
+import { useAppSelector } from '../store'
 import NotFound from '../pages/NotFound'
+
 const SupportDetails = () => {
   const [supItem] = useContext<any>(SupportContext)
   const { id } = useParams()
   const details = supItem.find((element: any) => element.id === Number(id))
+  const { lang } = useAppSelector(state => state.auth)
+  const t = lang === 'en';
 
   return (
     <>
@@ -25,9 +29,9 @@ const SupportDetails = () => {
                         </div>
 
                         <div className="mt-3">
-                          <div className='details_par'>Account: <p className='details_p'>Arif</p> </div>
-                          <div className='details_par'>Playtime: <p className='details_p'>{details.playtime}</p> </div>
-                          <div className='details_par'>Purchased: <p className='details_p'>{details.purchased}</p></div>
+                          <div className='details_par'>{t?"Account:":"Hesab:"} <p className='details_p'>Arif</p> </div>
+                          <div className='details_par'>{t?"Playtime:":"Oyun vaxtı:"} <p className='details_p'>{details.playtime}</p> </div>
+                          <div className='details_par'>{t?"Purchased:":"Alınan:"} <p className='details_p'>{details.purchased}</p></div>
                         </div>
                       </div>
 
@@ -38,7 +42,7 @@ const SupportDetails = () => {
                     <div className="col-12">
                       <div className="card w-75 px-3" >
                         <div className="card-body">
-                          <h5 className="card-title">Gameplay or technical issue.</h5>
+                          <h5 className="card-title">{t?"Gameplay or technical issue.":"Oyun və ya texniki problem."}</h5>
                         </div>
                         <img src="https://help.steampowered.com/public/images/arrow_right.png" alt="err" />
                       </div>
@@ -46,7 +50,7 @@ const SupportDetails = () => {
                     <div className="col-12">
                       <div className="card w-75 px-3" >
                         <div className="card-body">
-                          <h5 className="card-title">DLC or bonus content is missing</h5>
+                          <h5 className="card-title">{t?"DLC or bonus content is missing":"DLC və ya bonus məzmun yoxdur"}</h5>
                         </div>
                         <img src="https://help.steampowered.com/public/images/arrow_right.png"  alt="err" />
                       </div>
@@ -54,7 +58,7 @@ const SupportDetails = () => {
                     <div className="col-12">
                       <div className="card w-75 px-3" >
                         <div className="card-body">
-                          <h5 className="card-title">I want to parmanently remove this game from my account</h5>
+                          <h5 className="card-title">{t?"I want to parmanently remove this game from my account":"Bu oyunu hesabımdan həmişəlik silmək istəyirəm"}</h5>
                         </div>
                         <img src="https://help.steampowered.com/public/images/arrow_right.png"  alt="err" />
                       </div>

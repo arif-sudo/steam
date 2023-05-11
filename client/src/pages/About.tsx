@@ -36,7 +36,6 @@ const About = () => {
             duration: 2000,
             once: false
         })
-        // aos.refresh()
     }, []);
     return (
         <>

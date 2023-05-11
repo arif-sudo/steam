@@ -1,30 +1,23 @@
 import React from 'react'
 import SingleSupport from '../singlecomponents/SingleSupport'
 import { useContext} from 'react'
-
+import { useAppSelector } from '../store'
 import { SupportContext } from '../context/SupportContext'
 
-// interface ItemType {
-//   id: number;
-//   title: string;
-//   playtime: string;
-//   purchased: string;
-//   icon: string;
-//   background: string;
-// }
 
 const Support: React.FC = () => {
-  const [supItem, ] = useContext<any>(SupportContext)
-
+  const [supItem ] = useContext<any>(SupportContext)
+  const { lang } = useAppSelector(state => state.auth)
+  const t = lang === 'en';
   return (
     <>
       <div id="support">
         <div className="container">
           <div className="row d-flex flex-column">
             <div className="col">
-              <h2>Steam support</h2>
-              <h3>What do you need help with?</h3>
-              <p>Recent Products</p>
+              <h2>Steam {t? "support":"dəstək"}</h2>
+              <h3>{t?"What do you need help with?":"Sizə nə ilə bağlı kömək lazımdır?"}</h3>
+              <p>{t?"Recent Products":"Son Məhsullar"}</p>
             </div>
           </div>
           <div className="row g-4">
@@ -36,7 +29,7 @@ const Support: React.FC = () => {
             <div className="col-12">
               <div className="card w-75 px-3" >
                 <div className="card-body">
-                  <h5 className="card-title">Games, Software, etc.</h5>
+                  <h5 className="card-title">{t?"Games, Software, etc.":"Oyunlar, proqram təminatı və s."}</h5>
                 </div>
                 <img src="https://help.steampowered.com/public/images/arrow_right.png" alt="err" />
               </div>
@@ -44,7 +37,7 @@ const Support: React.FC = () => {
             <div className="col-12">
               <div className="card w-75 px-3" >
                 <div className="card-body">
-                  <h5 className="card-title">My Account</h5>
+                  <h5 className="card-title">{t?"My Account":"Mənim Hesabım"}</h5>
                 </div>
                 <img src="https://help.steampowered.com/public/images/arrow_right.png" alt="err" />
               </div>
@@ -52,7 +45,7 @@ const Support: React.FC = () => {
             <div className="col-12">
               <div className="card w-75 px-3" >
                 <div className="card-body">
-                  <h5 className="card-title">Steam Client</h5>
+                  <h5 className="card-title">Steam {t?"Client":"Müştəri"}</h5>
                 </div>
                 <img src="https://help.steampowered.com/public/images/arrow_right.png" alt="err" />
               </div>
@@ -60,7 +53,7 @@ const Support: React.FC = () => {
             <div className="col-12">
               <div className="card w-75 px-3" >
                 <div className="card-body">
-                  <h5 className="card-title">Purchases</h5>
+                  <h5 className="card-title">{t?"Purchases":"Satınalmalar"}</h5>
                 </div>
                 <img src="https://help.steampowered.com/public/images/arrow_right.png" alt="err" />
               </div>
