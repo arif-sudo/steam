@@ -44,7 +44,7 @@ const Navbar0 = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link >{t ? "Store" : "Mağaza" }</Nav.Link>
+            <Nav.Link ><NavLink to="/blog">Blog</NavLink></Nav.Link>
             <Nav.Link ><NavLink to="/games">{t ? "Games" : "Oyunlar" }</NavLink></Nav.Link>
             <Nav.Link ><NavLink to="/about">{t ? "About" : "Haqqında" }</NavLink></Nav.Link>
             <Nav.Link >{t ? "Chat" : "Söhbət" }</Nav.Link>

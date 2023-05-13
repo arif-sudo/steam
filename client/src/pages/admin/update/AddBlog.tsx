@@ -12,7 +12,7 @@ interface Blog {
 }
 
 
-const AddBlog = () => {
+const AddBlog:React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [newBlog, setNewBlog] = useState<Blog>({

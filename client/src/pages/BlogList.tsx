@@ -25,11 +25,6 @@ interface RootState {
 const BlogList = () => {
 
     const { blogs }: BlogState[] | any = useSelector((state: RootState) => state.blogs);//cant figure out type of blogs    
-
-    // const handleRemoveBlog = () => {
-    //     dispatch(removeBlog(newBlog.id))
-    //     setNewBlog({ id: 0, title: "", description: "", image: "" });
-    // }
     return (
         <div id="bloglist">
             <h1 className="text-center">Blog List</h1>

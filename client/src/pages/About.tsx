@@ -18,7 +18,7 @@ import 'swiper/css/scrollbar';
 import Card from 'react-bootstrap/Card';
 import { useAppSelector } from '../store'
 
-const About = () => {
+const About:React.FC = () => {
     const { lang } = useAppSelector(state => state.auth)
     const isMode = useMediaQuery('(max-width: 1100px)')
     const isModeSlide = useMediaQuery('(max-width: 768px)')

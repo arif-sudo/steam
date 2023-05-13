@@ -1,6 +1,5 @@
 import React from "react";
 import { Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 interface SingleBlogType {
@@ -17,7 +16,6 @@ const SingleBlog = ({ title, description, image }:SingleBlogType) => {
                 <Card.Body className="blog_body" >
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>{description}</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
         </Col>

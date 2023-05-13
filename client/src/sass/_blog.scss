@@ -16,25 +16,25 @@
         img {
             object-fit: cover;
         }
-        button {
-            width: auto;
-            height: 35px;
-            background: -webkit-linear-gradient( top, #6fa720 5%, #588a1b 95%);;
-            border: 2px solid black;
-            font-size: 15px;
-            color: white;
-            filter: brightness(80%);
-            &:hover{
-                filter: brightness(100%);
-            }
+        .card-title {
+            font-size: 22px;
+            font-family: 500;
+            color: cornflowerblue;
         }
+        // button {
+        //     width: auto;
+        //     height: 35px;
+        //     background: -webkit-linear-gradient( top, #6fa720 5%, #588a1b 95%);;
+        //     border: 2px solid black;
+        //     font-size: 15px;
+        //     color: white;
+        //     filter: brightness(80%);
+        //     &:hover{
+        //         filter: brightness(100%);
+        //     }
+        // } deleted
     }
 }
-// @media screen  and (max-width: 768px) {
-//     #bloglist {
-//         height: auto !important;
-//     }
-// }
 
 //addblog
 #addblog, #editblog {
