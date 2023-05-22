@@ -7,6 +7,7 @@ import { Toast } from 'primereact/toast';
 import 'primereact/resources/themes/saga-green/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import Navbar0 from '../components/Navbar0'
 
 const Cart = () => {
     const toastRemove: any = useRef(null)
@@ -22,11 +23,15 @@ const Cart = () => {
 
 
     return isEmpty
-        ? <EmptyCart/>
+        ? <>
+            <Navbar0 />
+            <EmptyCart />
+        </>
         : (
             <div id='cart'>
+                <Navbar0 />
                 <Container>
-                    <Toast  ref={toastRemove}  /> 
+                    <Toast ref={toastRemove} />
                     <h1 className='mb-5'>Your Shopping Cart</h1>
                     <Row className="g-5">
                         {items.map((item: any) => (
@@ -58,10 +63,10 @@ const Cart = () => {
                                     </Col>
                                     <Col>
                                         <button className='del' onClick={() => {
-                                            toastRemove.current.show({severity:'error', summary: 'Error Message', detail:'Message Content', life: 3000});
+                                            toastRemove.current.show({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
                                             removeItem(item.id);
                                         }}> DEL</button>
-                                        
+
                                     </Col>
                                     <Col className=' item_quantity'>
                                         Count: {item.quantity}

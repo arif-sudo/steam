@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateBlog, removeBlog } from "../../../myredux/action";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Navbar0 from "../../../components/Navbar0";
 
 
 interface Blog {
@@ -53,6 +54,7 @@ const EditBlog: React.FC = () => {
   }
   return (
     <div id="editblog">
+      <Navbar0 />
       <h1>Edit Blog</h1>
       <form onSubmit={(e) => { e.preventDefault(); handleEditBlog() }}>
         <input type="text" placeholder="Title" value={editBlog.title} onChange={(e) => setEditBlog({ ...editBlog, title: e.target.value })} />

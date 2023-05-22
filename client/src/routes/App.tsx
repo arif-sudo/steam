@@ -6,7 +6,6 @@ import Support from '../pages/Support'
 import SupportDetails from '../detailscomponents/SupportDetails'
 import { SupportProvider } from '../context/SupportContext'
 import Login from '../components/Login'
-import Navbar0 from '../components/Navbar0'
 import NotFound from '../pages/NotFound'
 import Games from '../pages/Games'
 import { CartProvider } from "react-use-cart";
@@ -23,7 +22,7 @@ const App = () => {
     <BrowserRouter>
       <CartProvider>
         <SupportProvider>
-          <Navbar0 />
+          <></>
           <Routes>
             <Route path='/' element={<Main />}></Route>
             <Route path='/login' element={<Login />}></Route>

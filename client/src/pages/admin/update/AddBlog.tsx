@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addBlog } from "../../../myredux/action";
 import { useNavigate } from "react-router-dom";
 import {v4 as uuidv4} from 'uuid';
+import Navbar0 from "../../../components/Navbar0";
 
 interface Blog {
   id: any;
@@ -29,6 +30,7 @@ const AddBlog:React.FC = () => {
   }
   return (
     <div id="addblog">
+      <Navbar0 />
       <h1>Add Blog</h1>
       <form onSubmit={(e) => { e.preventDefault(); handleAddBlog(); }}>
         <input type="text" placeholder="Title" value={newBlog.title} onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })} />

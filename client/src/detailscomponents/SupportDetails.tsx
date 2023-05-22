@@ -3,6 +3,7 @@ import { SupportContext } from '../context/SupportContext'
 import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../store'
 import NotFound from '../pages/NotFound'
+import Navbar0 from '../components/Navbar0'
 
 const SupportDetails = () => {
   const [supItem] = useContext<any>(SupportContext)
@@ -17,6 +18,7 @@ const SupportDetails = () => {
         details 
           ? (
             <div id="support_details">
+              <Navbar0 />
               <div className="container">
                 <div className="row d-flex flex-column">
                   <div className="col supparent">

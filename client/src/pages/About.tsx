@@ -17,8 +17,9 @@ import 'swiper/css/scrollbar';
 
 import Card from 'react-bootstrap/Card';
 import { useAppSelector } from '../store'
+import Navbar0 from '../components/Navbar0'
 
-const About:React.FC = () => {
+const About: React.FC = () => {
     const { lang } = useAppSelector(state => state.auth)
     const isMode = useMediaQuery('(max-width: 1100px)')
     const isModeSlide = useMediaQuery('(max-width: 768px)')
@@ -40,6 +41,7 @@ const About:React.FC = () => {
     return (
         <>
             <div id='about'>
+                <Navbar0 />
                 <div className="container">
                     <div className="row d-flex align-items-center justify-content-center">
                         <div className="col-sm-12 col-lg-6 left">
@@ -65,7 +67,7 @@ const About:React.FC = () => {
                     </div>
                     <div className="about_body">
                         <h3 className='text-center'>{t ? "Access Games Instantly" : "Oyunlara Dərhal daxil olun"}</h3>
-                        <p className='text-center'>{t ? "With nearly 30,000 games from AAA to indie and everything in-between. Enjoy exclusive deals, automatic game updates, and other great perks." : "AAA-dan indie-ə qədər təxminən 30.000 oyun və aralarındakı hər şey. Eksklüziv sövdələşmələrdən, avtomatik oyun yeniləmələrindən və digər möhtəşəm bonuslardan həzz alın." }</p>
+                        <p className='text-center'>{t ? "With nearly 30,000 games from AAA to indie and everything in-between. Enjoy exclusive deals, automatic game updates, and other great perks." : "AAA-dan indie-ə qədər təxminən 30.000 oyun və aralarındakı hər şey. Eksklüziv sövdələşmələrdən, avtomatik oyun yeniləmələrindən və digər möhtəşəm bonuslardan həzz alın."}</p>
                         <Link to='/' ><h5>{t ? "Browse the store" : "Mağazaya baxın"} &rarr;</h5></Link>
 
                         {isMode
@@ -92,7 +94,7 @@ const About:React.FC = () => {
                                 <div className="ctas_community mt-5">
                                     <h2>{t ? "Join The Community" : "İcmaya Qoşulun"}</h2>
                                     <p>{t ? "Meet new people, join groups, form clans, chat in-game and more! With over 100 million potential friends (or enemies), the fun never stops." : "Yeni insanlarla tanış olun, qruplara qoşulun, klanlar yaradın, oyunda söhbət edin və s.! 100 milyondan çox potensial dost (və ya düşmən) ilə əyləncə heç vaxt dayanmır."}</p>
-                                    <h5>{t ? "Visit the community": "Cəmiyyəti ziyarət edin"} &rarr;</h5>
+                                    <h5>{t ? "Visit the community" : "Cəmiyyəti ziyarət edin"} &rarr;</h5>
                                 </div>
                             </div>
                             <div className="col-sm-12 col-md-6">
@@ -120,7 +122,7 @@ const About:React.FC = () => {
                             <div className="col-sm-12 col-md-6">
                                 <div className="ctas_community mt-5">
                                     <img width={120} src="https://cdn.cloudflare.steamstatic.com/store/about/logo-steamworks.svg" alt="" />
-                                    <h2>{t ? "Release your Game": "Oyununuzu buraxın"}</h2>
+                                    <h2>{t ? "Release your Game" : "Oyununuzu buraxın"}</h2>
                                     <p>{t ? "Steamworks is the set of tools and services that help game developers and publishers get the most out of distributing games on Steam." : "Steamworks, oyun tərtibatçılarına və nəşriyyatçılarına Steam-də oyunların yayılmasından maksimum yararlanmağa kömək edən alətlər və xidmətlər toplusudur."}</p>
                                     <h5>{t ? "Experience Steam Hardware" : "Steam Təchizatı təcrübəsi"} &rarr;</h5>
                                 </div>
@@ -152,11 +154,11 @@ const About:React.FC = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body className=''>
-                                            <Card.Title className='feature_title'>Steam {t?"Chat":"Söhbət"}</Card.Title>
+                                            <Card.Title className='feature_title'>Steam {t ? "Chat" : "Söhbət"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
+                                                {t ? "Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely." : "Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                             </Card.Text>
-                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
+                                            <h5>{t ? "Learn more" : "Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -166,11 +168,11 @@ const About:React.FC = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title'>{t?"Game Hubs":"Oyun mərkəzləri"}</Card.Title>
+                                            <Card.Title className='feature_title'>{t ? "Game Hubs" : "Oyun mərkəzləri"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                {t?"Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates.":"Oyununuzla bağlı hər şey, hamısı bir yerdə. Müzakirələrə qoşulun, məzmun yükləyin və yeni yeniləmələrdən ilk siz xəbərdar olun."}
+                                                {t ? "Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates." : "Oyununuzla bağlı hər şey, hamısı bir yerdə. Müzakirələrə qoşulun, məzmun yükləyin və yeni yeniləmələrdən ilk siz xəbərdar olun."}
                                             </Card.Text>
-                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
+                                            <h5>{t ? "Learn more" : "Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -180,11 +182,11 @@ const About:React.FC = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title '>{t ? "Broad Casts":"Verlişlər"}</Card.Title>
+                                            <Card.Title className='feature_title '>{t ? "Broad Casts" : "Verlişlər"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                {t?"Stream your gameplay live with the click of a button, and share your game with friends or the rest of the community.":"Oyununuzu bir düyməyə klikləməklə canlı yayımlayın və oyununuzu dostlarınız və ya cəmiyyətin qalan hissəsi ilə paylaşın."}
+                                                {t ? "Stream your gameplay live with the click of a button, and share your game with friends or the rest of the community." : "Oyununuzu bir düyməyə klikləməklə canlı yayımlayın və oyununuzu dostlarınız və ya cəmiyyətin qalan hissəsi ilə paylaşın."}
                                             </Card.Text>
-                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
+                                            <h5>{t ? "Learn more" : "Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -194,11 +196,11 @@ const About:React.FC = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title'>{t?"Steam Workshop":"Steam Studiyası"}</Card.Title>
+                                            <Card.Title className='feature_title'>{t ? "Steam Workshop" : "Steam Studiyası"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
+                                                {t ? "Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely." : "Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                             </Card.Text>
-                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
+                                            <h5>{t ? "Learn more" : "Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -208,11 +210,11 @@ const About:React.FC = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title '>{t?"Available on Mobile":"Mobildə mövcuddur"}</Card.Title>
+                                            <Card.Title className='feature_title '>{t ? "Available on Mobile" : "Mobildə mövcuddur"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                                {t?"Access Steam anywhere from your iOS or Android device with the Steam mobile app.":"Steam mobil tətbiqi ilə iOS və ya Android cihazınızdan istənilən yerdən Steam-ə daxil olun."}
+                                                {t ? "Access Steam anywhere from your iOS or Android device with the Steam mobile app." : "Steam mobil tətbiqi ilə iOS və ya Android cihazınızdan istənilən yerdən Steam-ə daxil olun."}
                                             </Card.Text>
-                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
+                                            <h5>{t ? "Learn more" : "Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -222,11 +224,11 @@ const About:React.FC = () => {
                                     </div>
                                     <Card className="feature_info text-center">
                                         <Card.Body>
-                                            <Card.Title className='feature_title'>{t?"Early Access to Games":"Oyunlara Erkən Giriş"}</Card.Title>
+                                            <Card.Title className='feature_title'>{t ? "Early Access to Games" : "Oyunlara Erkən Giriş"}</Card.Title>
                                             <Card.Text className='feature_text'>
-                                               {t?" Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process.":"Oyunlar inkişaf etdikcə onları kəşf edin, oynayın və onlarla iştirak edin. Gələcəkləri ilk görən və prosesin bir hissəsi olun."}
+                                                {t ? " Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process." : "Oyunlar inkişaf etdikcə onları kəşf edin, oynayın və onlarla iştirak edin. Gələcəkləri ilk görən və prosesin bir hissəsi olun."}
                                             </Card.Text>
-                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
+                                            <h5>{t ? "Learn more" : "Daha ətraflı"} &rarr;</h5>
                                         </Card.Body>
                                     </Card>
                                 </SwiperSlide>
@@ -235,8 +237,8 @@ const About:React.FC = () => {
                         (
                             <div className="container  my-5">
                                 <div className="d-flex flex-column align-items-center justify-content-center mt-5">
-                                    <h1 className='text-center' style={{ fontSize: "70px" }}>{t?"Features":"Funksiyalar"}</h1>
-                                    <p className='text-center' style={{ fontSize: "30px", width: "700px" }}>{t?"We are constantly working to bring new updates and features to Steam, such as:":"Biz daim Steam-ə yeni yeniləmələr və funksiyalar gətirmək üçün çalışırıq, məsələn:"}</p>
+                                    <h1 className='text-center' style={{ fontSize: "70px" }}>{t ? "Features" : "Funksiyalar"}</h1>
+                                    <p className='text-center' style={{ fontSize: "30px", width: "700px" }}>{t ? "We are constantly working to bring new updates and features to Steam, such as:" : "Biz daim Steam-ə yeni yeniləmələr və funksiyalar gətirmək üçün çalışırıq, məsələn:"}</p>
                                 </div>
                                 <div className="row mb-5">
                                     <div className="col d-flex flex-column justify-content-center align-items-center">
@@ -245,9 +247,9 @@ const About:React.FC = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body className=''>
-                                                <Card.Title className='feature_title'>{t?"Steam Chat":"Stea Söhbət"}</Card.Title>
+                                                <Card.Title className='feature_title'>{t ? "Steam Chat" : "Stea Söhbət"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
+                                                    {t ? "Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely." : "Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -257,14 +259,14 @@ const About:React.FC = () => {
                                             <img src="https://cdn.cloudflare.steamstatic.com/store/about/icon-gamehubs.svg" alt="err" />
                                         </div>
                                         <Card className="feature_info text-center">
-                                        <Card.Body>
-                                            <Card.Title className='feature_title'>{t?"Game Hubs":"Oyun mərkəzləri"}</Card.Title>
-                                            <Card.Text className='feature_text'>
-                                                {t?"Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates.":"Oyununuzla bağlı hər şey, hamısı bir yerdə. Müzakirələrə qoşulun, məzmun yükləyin və yeni yeniləmələrdən ilk siz xəbərdar olun."}
-                                            </Card.Text>
-                                            <h5>{t ? "Learn more":"Daha ətraflı"} &rarr;</h5>
-                                        </Card.Body>
-                                    </Card>
+                                            <Card.Body>
+                                                <Card.Title className='feature_title'>{t ? "Game Hubs" : "Oyun mərkəzləri"}</Card.Title>
+                                                <Card.Text className='feature_text'>
+                                                    {t ? "Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates." : "Oyununuzla bağlı hər şey, hamısı bir yerdə. Müzakirələrə qoşulun, məzmun yükləyin və yeni yeniləmələrdən ilk siz xəbərdar olun."}
+                                                </Card.Text>
+                                                <h5>{t ? "Learn more" : "Daha ətraflı"} &rarr;</h5>
+                                            </Card.Body>
+                                        </Card>
                                     </div>
                                     <div className="col d-flex flex-column justify-content-center align-items-center">
                                         <div id="card_logo">
@@ -272,9 +274,9 @@ const About:React.FC = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body className=''>
-                                                <Card.Title className='feature_title'>{t?"Controller Support":"Nəzarətçi dəstəyi"}</Card.Title>
+                                                <Card.Title className='feature_title'>{t ? "Controller Support" : "Nəzarətçi dəstəyi"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    {t?"Steam encourages developers to include controller support in their games including PlayStation, Xbox, and Nintendo controllers.":"Steam, tərtibatçıları PlayStation, Xbox və Nintendo kontrollerləri də daxil olmaqla oyunlarına nəzarətçi dəstəyi daxil etməyə təşviq edir."}
+                                                    {t ? "Steam encourages developers to include controller support in their games including PlayStation, Xbox, and Nintendo controllers." : "Steam, tərtibatçıları PlayStation, Xbox və Nintendo kontrollerləri də daxil olmaqla oyunlarına nəzarətçi dəstəyi daxil etməyə təşviq edir."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -285,9 +287,9 @@ const About:React.FC = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body>
-                                                <Card.Title className='feature_title'>{t?"Steam Workshop":"Steam studiyası"}</Card.Title>
+                                                <Card.Title className='feature_title'>{t ? "Steam Workshop" : "Steam studiyası"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    {t?"Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely.":"Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
+                                                    {t ? "Talk with friends or groups via text or voice without leaving Steam. Videos, Tweets, GIFs and more are supported; use wisely." : "Steam-dən çıxmadan mətn və ya səs vasitəsilə dostlarınız və ya qruplarınızla danışın. Videolar, Tweetlər, GIF-lər və s. dəstəklənir; ağılla istifadə edin."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -298,9 +300,9 @@ const About:React.FC = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body>
-                                                <Card.Title className='feature_title '>{t?"Available on Mobile":"Mobildə mövcuddur"}</Card.Title>
+                                                <Card.Title className='feature_title '>{t ? "Available on Mobile" : "Mobildə mövcuddur"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    {t?"Access Steam anywhere from your iOS or Android device with the Steam mobile app.":"Steam mobil tətbiqi ilə iOS və ya Android cihazınızdan istənilən yerdən Steam-ə daxil olun."}
+                                                    {t ? "Access Steam anywhere from your iOS or Android device with the Steam mobile app." : "Steam mobil tətbiqi ilə iOS və ya Android cihazınızdan istənilən yerdən Steam-ə daxil olun."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>
@@ -311,9 +313,9 @@ const About:React.FC = () => {
                                         </div>
                                         <Card className="feature_info text-center">
                                             <Card.Body>
-                                                <Card.Title className='feature_title'>{t?"Early Access to Games":"Oyunlara Erkən Giriş"}</Card.Title>
+                                                <Card.Title className='feature_title'>{t ? "Early Access to Games" : "Oyunlara Erkən Giriş"}</Card.Title>
                                                 <Card.Text className='feature_text'>
-                                                    {t?"Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process.":"Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process."}
+                                                    {t ? "Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process." : "Discover, play, and get involved with games as they evolve. Be the first to see what's coming and become part of the process."}
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>

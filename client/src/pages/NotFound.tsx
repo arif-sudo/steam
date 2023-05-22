@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../store'
+import Navbar0 from '../components/Navbar0';
 
 const NotFound: React.FC = () => {
   const { lang } = useAppSelector(state => state.auth);
   const t = lang === 'en';
   return (
     <div id='notfound'>
+      <Navbar0 />
       <div className="container">
         <div className="row">
           <div className="col">

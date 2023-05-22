@@ -3,6 +3,7 @@ import SingleSupport from '../singlecomponents/SingleSupport'
 import { useContext} from 'react'
 import { useAppSelector } from '../store'
 import { SupportContext } from '../context/SupportContext'
+import Navbar0 from '../components/Navbar0'
 
 
 const Support: React.FC = () => {
@@ -12,6 +13,7 @@ const Support: React.FC = () => {
   return (
     <>
       <div id="support">
+        <Navbar0 />
         <div className="container">
           <div className="row d-flex flex-column">
             <div className="col">

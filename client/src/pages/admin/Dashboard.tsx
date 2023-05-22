@@ -4,6 +4,7 @@ import DashboardItem from "./DashboardItem";
 import { useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button } from "react-bootstrap";
+import Navbar0 from "../../components/Navbar0";
 
 interface Blog {
   id: number;
@@ -29,6 +30,7 @@ const Dashboard = () => {
   const { blogs }: BlogState[] | any = useSelector((state: RootState) => state.blogs);//cant figure out type of blogs    
   return (
     <div id="dashboard" >
+      <Navbar0 />
       <h1>Admin</h1>
       <Table bordered className="dashboard_table" >
         <thead>
