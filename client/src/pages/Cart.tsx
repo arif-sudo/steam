@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap'
 import { useCart } from 'react-use-cart'
 import { useMediaQuery } from 'usehooks-ts'
-
+import EmptyCart from '../components/EmptyCart'
 import { Toast } from 'primereact/toast';
 import 'primereact/resources/themes/saga-green/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -12,10 +12,8 @@ const Cart = () => {
     const toastRemove: any = useRef(null)
     const {
         items,
-        // cartTotal,
         isEmpty,
         updateItemQuantity,
-        // totalUniqueItems,
         removeItem,
         emptyCart,
 
@@ -24,7 +22,7 @@ const Cart = () => {
 
 
     return isEmpty
-        ? <div className="emptycart"><img src="https://www.qrcardboard.com/images/cart.gif?v=01" alt="err" /></div>
+        ? <EmptyCart/>
         : (
             <div id='cart'>
                 <Container>
