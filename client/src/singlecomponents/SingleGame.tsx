@@ -24,7 +24,7 @@ const SingleGame: React.FC<PropType> = (props) => {
                 <img src={props.photo} alt='err' />
                 <div className='cartinfo'>
                     <div className="text-dark d-flex flex-column">
-                        <h5>{(props.title).slice(0, 10)}</h5>
+                        <h5>{props.title}</h5>
                         <div className="d-flex align-items-center">
                             <div className='discount'>-40% </div>
                             <div className="prices">

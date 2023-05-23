@@ -11,12 +11,12 @@ interface PropType {
 
 const SingleCard: React.FC<PropType> = (props) => {
     return (
-        <Col sm="12" className='d-flex justify-content-end'>
+        <Col sm="2" className='d-flex justify-content-end'>
             <LinkContainer to="/about" >
                 <Card className='searchcard' >
                     <Card.Img src={props.photo} className='img-fluid' />
                     <Card.Body>
-                        <h5>{props.title}</h5>
+                        <h5>{props.title.slice(0, 14)}</h5>
                         <p>
                             Price: {props.price}
                         </p>

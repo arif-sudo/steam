@@ -1,34 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import React, { useState,  useContext } from 'react'
 import SingleCard from '../singlecomponents/SingleSearch';
 import { useAppSelector } from '../store';
-interface ProductsType {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import { GameContext } from '../context/GameContext';
+
+// interface ProductsType {
+//   id: number;
+//   title: string;
+//   price: number;
+//   description: string;
+//   category: string;
+//   image: string;
+//   rating: {
+//     rate: number;
+//     count: number;
+//   };
+// }
 
 const Search:React.FC = () => {
-  const [game, setGame] = useState<ProductsType[]>([]);
   const [query, setQuery] = useState<string>('');
   const [check, setCheck] = useState<string>('');
   const { lang } = useAppSelector(state => state.auth)
   const t = lang === 'en';
 
+  const [game] = useContext<any>(GameContext);
   
-
-  useEffect(()=>{
-    axios.get("https://fakestoreapi.com/products").then((res: any) => {
-      setGame(res.data);
-    });
-  }, []) 
 
   return (
     <div id="search">
@@ -42,7 +37,7 @@ const Search:React.FC = () => {
         <div className="row my-5">
             {check.length === 0 
             ? <></>
-            : game.filter(item=> item.title.toLocaleLowerCase().includes(query)).map((item: any, index:number) => (
+            : game.filter((item:any) => item.title.toLocaleLowerCase().includes(query)).map((item: any, index:number) => (
               <SingleCard
               photo={item.image}
               title={item.title}

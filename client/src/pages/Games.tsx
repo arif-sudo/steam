@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import React, {  useContext } from 'react'
 import SingleGame from '../singlecomponents/SingleGame';
 import Navbar0 from '../components/Navbar0';
+import { GameContext } from '../context/GameContext';
 
 const Games = () => {
-  const [game, setGame] = useState([]);
+  const [game] = useContext<any>(GameContext);
 
-
-  useEffect(() => {
-    axios.get("https://fakestoreapi.com/products")
-      .then(res => setGame(res.data))
-  }, [])
+  
 
   return (
     <div id='games'>

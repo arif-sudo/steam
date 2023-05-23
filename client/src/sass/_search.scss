@@ -30,30 +30,35 @@
             font-size: 24px;
         }
     }
-    .searchcard{
-        margin: 10px 0;
-        padding: 0 10px;
-        display: flex;
-        flex-direction: row;
-        width: 400px;
-        height: auto;
-        background-color: black;
-        img{
-            width: 400px !important;
-            height: 200px !important;
-        }
-        h5{
-            font-size: 16px !important;
-        }
-        p {
-            font-size: 13px;
-        }
-        .card-body{
+    .row {
+        // height: 500px ;
+        // overflow: hidden;
+        // overflow-y: scroll;
+        .searchcard{
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            padding:  0 10px;
-            
+            width: 100% !important;
+            height: 200px !important;
+            margin: 10px 0;
+            // padding: 10px;
+            background-color: #333333;
+            img{
+                width: auto ;
+                height: 200px !important ;
+            }
+            h5{
+                font-size: 16px !important;
+            }
+            p {
+                font-size: 13px;
+            }
+            .card-body{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                padding:  0 10px;
+                
+            }
         }
     }
 }

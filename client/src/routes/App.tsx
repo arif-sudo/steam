@@ -14,7 +14,7 @@ import BlogList from '../pages/BlogList'
 import AddBlog from '../pages/admin/update/AddBlog'
 import EditBlog from '../pages/admin/update/EditBlog'
 import Dashboard from '../pages/admin/Dashboard'
-
+import { GameProvider } from '../context/GameContext'
 
 const App = () => {
 
@@ -22,22 +22,25 @@ const App = () => {
     <BrowserRouter>
       <SupportProvider>
         <></>
-        <CartProvider>
-          <Routes>
-            <Route path='/' element={<Main />}></Route>
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/about' element={<About />}></Route>
-            <Route path='/support' element={<Support />}></Route>
-            <Route path='/support/:id' element={<SupportDetails />}></Route>
-            <Route path='/games' element={<Games />}></Route>
-            <Route path='/cart' element={<Cart />}></Route>
-            <Route path='/blog' element={<BlogList />}></Route>
-            <Route path='/addblog' element={<AddBlog />}></Route>
-            <Route path='/admin' element={<Dashboard />} />
-            <Route path='/editblog/:id' element={<EditBlog />}></Route>
-            <Route path='*' element={<NotFound />}></Route>
-          </Routes>
-        </CartProvider>
+        <GameProvider>
+          <></>
+          <CartProvider>
+            <Routes>
+              <Route path='/' element={<Main />}></Route>
+              <Route path='/login' element={<Login />}></Route>
+              <Route path='/about' element={<About />}></Route>
+              <Route path='/support' element={<Support />}></Route>
+              <Route path='/support/:id' element={<SupportDetails />}></Route>
+              <Route path='/games' element={<Games />}></Route>
+              <Route path='/cart' element={<Cart />}></Route>
+              <Route path='/blog' element={<BlogList />}></Route>
+              <Route path='/addblog' element={<AddBlog />}></Route>
+              <Route path='/admin' element={<Dashboard />} />
+              <Route path='/editblog/:id' element={<EditBlog />}></Route>
+              <Route path='*' element={<NotFound />}></Route>
+            </Routes>
+          </CartProvider>
+        </GameProvider>
       </SupportProvider>
     </BrowserRouter>
 
