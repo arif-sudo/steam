@@ -20,9 +20,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <CartProvider>
-        <SupportProvider>
-          <></>
+      <SupportProvider>
+        <></>
+        <CartProvider>
           <Routes>
             <Route path='/' element={<Main />}></Route>
             <Route path='/login' element={<Login />}></Route>
@@ -37,8 +37,8 @@ const App = () => {
             <Route path='/editblog/:id' element={<EditBlog />}></Route>
             <Route path='*' element={<NotFound />}></Route>
           </Routes>
-        </SupportProvider>
-      </CartProvider>
+        </CartProvider>
+      </SupportProvider>
     </BrowserRouter>
 
   )

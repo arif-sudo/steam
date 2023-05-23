@@ -12,7 +12,9 @@ import 'swiper/css/scrollbar';
 const Hero2 = () => {
     return (
         <div id="hero2">
-            {/* change to swiper */}
+            <div className="container">
+
+            
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
@@ -169,10 +171,8 @@ const Hero2 = () => {
                         </Card.Body>
                     </Card>
                 </SwiperSlide>
-
-
-
             </Swiper>
+            </div>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import SingleBlog from "../singlecomponents/SingleBlog";
-import { Navbar, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import Navbar0 from "../components/Navbar0";
 
 interface Blog {
