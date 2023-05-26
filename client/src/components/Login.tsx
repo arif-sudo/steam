@@ -1,10 +1,18 @@
 import React, { useState } from 'react'
+import { useAppSelector } from '../store'
+import { useAppDispatch } from '../store'
+
+import { login } from '../slice/store'
 
 const Login = () => {
-  // const [pages, setPages] = useState("register");
+  // const [pages, setPages] = useState<string>("register");
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
 
-  // const isLogin = pages == "login"
-  // const isRegister = pages == "register"
+  const {user} = useAppSelector(state => state);
+  const dispatch = useAppDispatch()
+
+
   return (
     <div id='login'>
       <div className="container d-flex justify-content-center">
@@ -18,15 +26,16 @@ const Login = () => {
           </div>
           <div id='form_info'>
             <div className="form-floating mb-3 ">
-              <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
               <label htmlFor="floatingInput">Email address</label>
             </div>
             <div className="form-floating">
-              <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+              <input  value={password} onChange={(e) => setPassword(e.target.value)} type="password" className="form-control" id="floatingPassword" placeholder="Password" />
               <label htmlFor="floatingPassword">Password</label>
             </div>
             <div className="login_button">
-              <button>Sign in</button>
+              <button onClick={() => dispatch(login({email, password})) } className='mx-3' >Sign in</button>
+              <button onClick={() => console.log(0) } className='mx-3' >Register</button>
             </div>
           </div>
           </div>

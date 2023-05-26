@@ -3,7 +3,7 @@ import axios from "axios";
 export const API_URL = 'https://localhost:5000'
 
 const $api = axios.create({
-    withCredentials: true,
+    withCredentials: true, //cookie will attach automatically
     baseURL: API_URL
 })
 

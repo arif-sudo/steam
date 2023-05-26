@@ -1,18 +1,10 @@
 import $api from "../http";
 import { AxiosResponse } from "axios";
-
-interface AuthResponse {
-    accessToken: string,
-    refreshToken: string,
-    user: {
-        id: number,
-        isActivated: boolean,
-        email: string
-    }
-}
+import { AuthResponse } from "../models/response/AuthResponse";
 
 export default class AuthService {
     static async login(email:string, password:string): Promise<AxiosResponse<AuthResponse>> {
+        console.log(email, password)
         return $api.post<AuthResponse>('/login', {email, password})
     }
 
