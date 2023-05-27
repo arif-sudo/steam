@@ -4,8 +4,7 @@ import { AuthResponse } from "../models/response/AuthResponse";
 
 export default class AuthService {
     static async login(email:string, password:string): Promise<AxiosResponse<AuthResponse>> {
-        console.log(email, password)
-        return $api.post<AuthResponse>('/login', {email, password})
+        return $api.post<AuthResponse>('/login', {email, password})//  /api shouldnt be written cause in server's route its called by default but here i added it
     }
 
     static async registration(email:string, password:string): Promise<AxiosResponse<AuthResponse>> {

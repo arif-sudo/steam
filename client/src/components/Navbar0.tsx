@@ -13,11 +13,13 @@ import { useAppSelector } from '../store';
 
 import { useCart } from 'react-use-cart';
 
+import { logout } from '../slice/store';
 
 const Navbar0 = () => {
   const { lang } = useAppSelector(state => state.auth)
   const { mode } = useAppSelector(state => state.auth)
   const { nav } = useAppSelector(state => state.auth)
+  const { user } = useAppSelector(state => state.user)
   const dispatch = useAppDispatch()
 
   const navInput = useRef<HTMLElement>(null)
@@ -25,6 +27,7 @@ const Navbar0 = () => {
 
   const t = lang === 'en';
 
+  console.log(user, '!!')
 
   useEffect(() => {
     const body: any = document.querySelector('body')
@@ -45,12 +48,12 @@ const Navbar0 = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link ><NavLink to="/blog">Blog</NavLink></Nav.Link>
-            <Nav.Link ><NavLink to="/games">{t ? "Games" : "Oyunlar" }</NavLink></Nav.Link>
-            <Nav.Link ><NavLink to="/about">{t ? "About" : "Haqqında" }</NavLink></Nav.Link>
-            <Nav.Link >{t ? "Chat" : "Söhbət" }</Nav.Link>
+            <Nav.Link ><NavLink to="/games">{t ? "Games" : "Oyunlar"}</NavLink></Nav.Link>
+            <Nav.Link ><NavLink to="/about">{t ? "About" : "Haqqında"}</NavLink></Nav.Link>
+            <Nav.Link >{t ? "Chat" : "Söhbət"}</Nav.Link>
             <Nav.Link ><NavLink to="/admin">Admin</NavLink></Nav.Link>
-            <Nav.Link ><NavLink to="/support">{t ? "Support" : "Dəstək" }</NavLink></Nav.Link>
-            <div id="profile"><Nav.Link ><NavLink to="/cart">{t ? "Cart" : "Səbət" }<span>{totalItems}</span></NavLink></Nav.Link></div>
+            <Nav.Link ><NavLink to="/support">{t ? "Support" : "Dəstək"}</NavLink></Nav.Link>
+            <div id="profile"><Nav.Link ><NavLink to="/cart">{t ? "Cart" : "Səbət"}<span>{totalItems}</span></NavLink></Nav.Link></div>
           </Nav>
           <Nav>
 
@@ -68,15 +71,13 @@ const Navbar0 = () => {
               <NavDropdown.Item onClick={() => dispatch(setLang('az'))} >AZ</NavDropdown.Item>
               <NavDropdown.Item onClick={() => dispatch(setLang('en'))} >EN</NavDropdown.Item>
             </NavDropdown>
-
-            <Nav.Link className='align-self-center' ><NavLink to="/profile">{t ? "Profile" : "Profil" }</NavLink></Nav.Link>
-            
+            <Nav.Link className='align-self-center' >{user.email}<button onClick={() => dispatch(logout())} >Logout</button></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar >
 
-  )
+  ) 
 }
 
 export default Navbar0

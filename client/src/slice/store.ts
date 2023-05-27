@@ -1,15 +1,24 @@
-import { IUser } from "../models/IUser";
+import axios from "axios";
+// import { IUser } from "../models/IUser";
 import AuthService from "../services/AuthService";
+import { AuthResponse } from "../models/response/AuthResponse";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { API_URL } from "../http";
 
-const initialState = {
-    user: {},
-    isAuth: false
+interface IUser {
+    email: string;
+    isActivated: boolean;
+    id: string;
 }
 
 interface storeState {
-    user: IUser;
     isAuth: boolean;
+    user: IUser;
+}
+
+const initialState = {
+    isAuth: false,
+    user: {},
 }
 
 interface loginCredentials {
@@ -21,12 +30,14 @@ interface loginCredentials {
 
 export const login = createAsyncThunk(
     'store/login',
-    async (credentials: loginCredentials, { rejectWithValue }:any) => {
+    async (credentials: loginCredentials, { rejectWithValue }: any) => {
         try {
             const response = await AuthService.login(credentials.email, credentials.password);
+            //The fulfilled action will have the response value returned from the async callback function as its payload. In this case, it will be response.data.accessToken, which is the access token obtained from the API response.
+            console.log(response)
             localStorage.setItem('token', response.data.accessToken);
             return response.data.user;
-        } catch (error:any) {
+        } catch (error: any) {
             return rejectWithValue(error.response?.data?.message);
         }
     }
@@ -34,7 +45,7 @@ export const login = createAsyncThunk(
 
 export const registration = createAsyncThunk(
     'store/registration',
-    async (credentials: any, { rejectWithValue }: any) => {
+    async (credentials: loginCredentials, { rejectWithValue }: any) => {
         try {
             const response = await AuthService.registration(credentials.email, credentials.password);
             localStorage.setItem('token', response.data.accessToken);
@@ -50,9 +61,20 @@ export const logout = createAsyncThunk('store/logout', async () => {
         await AuthService.logout();
         localStorage.removeItem('token');
     } catch (error: any) {
-        console.log(error)
+        console.log(error.response?.data?.message)
     }
 });
+
+export const checkauth = createAsyncThunk('store/refresh', async () => {
+    try {
+        const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
+        console.log(response)
+        localStorage.setItem('token', response.data.accessToken)
+
+    } catch (err: any) {
+        console.log(err.response?.data?.message)
+    }
+})
 
 
 
@@ -62,11 +84,11 @@ export const storeSlice = createSlice({
     reducers: {},
     extraReducers: (builder: any) => {
         builder
-            .addCase(login.fulfilled, (state: storeState, action: { payload: IUser }) => {
+            .addCase(login.fulfilled, (state: storeState, action: { type: string, payload: IUser, meta: any }) => {
                 state.isAuth = true;
-                state.user = action.payload;
+                state.user = { ...action.payload };
             })
-            .addCase(registration.fulfilled, (state: storeState, action: { payload: IUser }) => {
+            .addCase(registration.fulfilled, (state: storeState, action: { type: string, payload: IUser, meta: any }) => {
                 state.isAuth = true;
                 state.user = action.payload;
             })
@@ -74,63 +96,11 @@ export const storeSlice = createSlice({
                 state.isAuth = false;
                 state.user = {} as IUser;
             })
-        //   .addCase(login.rejected, (state) => {
-        //     // Handle login rejection if needed
-        //   })
-        //   .addCase(registration.rejected, (state) => {
-        //     // Handle registration rejection if needed
-        //   });
+            .addCase(checkauth.fulfilled, (state: storeState, action: { type: string, payload: IUser, meta: any }) => {
+                state.isAuth = true;
+                state.user = action.payload
+            })
     },
 })
 
-// export const { setAuth, setUser } = storeSlice.actions
 export default storeSlice.reducer
-
-// export default class Store {
-
-//     user = {} as IUser
-//     isAuth = false
-
-
-//     setAuth(bool: boolean) {
-//         this.isAuth = bool
-//     }
-
-//     setUser(user: IUser) {
-//         this.user = user
-//     }
-
-    // async login(email: string, password: string) {
-    //     try {
-    //         const response = await AuthService.login(email, password);
-    //         localStorage.setItem('token', response.data.accessToken)
-    //         this.setAuth(true);
-    //         this.setUser(response.data.user)
-    //     } catch (e: any) {
-    //         console.log(e.response?.data?.message)
-    //     }
-    // }
-
-//     async registration(email: string, password: string) {
-//         try {
-//             const response = await AuthService.registration(email, password);
-//             localStorage.setItem('token', response.data.accessToken)
-//             this.setAuth(true);
-//             this.setUser(response.data.user)
-//         } catch (e: any) {
-//             console.log(e.response?.data?.message)
-//         }
-//     }
-
-//     async logout() {
-//         try {
-//             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-//             const response = await AuthService.logout();
-//             localStorage.removeItem('token')
-//             this.setAuth(false);
-//             this.setUser({} as IUser)
-//         } catch (e: any) {
-//             console.log(e.response?.data?.message)
-//         }
-//     }
-// }

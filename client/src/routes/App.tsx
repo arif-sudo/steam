@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import { FC, useEffect } from 'react'
 import About from '../pages/About'
 import Main from '../pages/Main'
 import Support from '../pages/Support'
@@ -16,7 +16,19 @@ import EditBlog from '../pages/admin/update/EditBlog'
 import Dashboard from '../pages/admin/Dashboard'
 import { GameProvider } from '../context/GameContext'
 
-const App = () => {
+import { checkauth } from '../slice/store'
+import { useAppDispatch } from '../store'
+
+
+const App:FC = () => {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+   if (!localStorage.getItem('token')){
+      dispatch(checkauth())
+   }
+  }, [dispatch])
+  
 
   return (
     <BrowserRouter>

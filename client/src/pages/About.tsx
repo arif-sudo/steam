@@ -18,6 +18,7 @@ import 'swiper/css/scrollbar';
 import Card from 'react-bootstrap/Card';
 import { useAppSelector } from '../store'
 import Navbar0 from '../components/Navbar0'
+import ScrollToTop from '../components/ScrollToTop'
 
 const About: React.FC = () => {
     const { lang } = useAppSelector(state => state.auth)
@@ -40,6 +41,7 @@ const About: React.FC = () => {
     }, []);
     return (
         <>
+            <ScrollToTop />
             <div id='about'>
                 <Navbar0 />
                 <div className="container">
