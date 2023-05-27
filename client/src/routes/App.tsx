@@ -17,14 +17,15 @@ import Dashboard from '../pages/admin/Dashboard'
 import { GameProvider } from '../context/GameContext'
 
 import { checkauth } from '../slice/store'
-import { useAppDispatch } from '../store'
-
+import { useAppDispatch, useAppSelector } from '../store'
+import { Navigate } from 'react-router-dom'
 
 const App:FC = () => {
+  const {user} = useAppSelector(state => state)
   const dispatch = useAppDispatch()
-
+  const nl = <Navigate to='/login' />
   useEffect(() => {
-   if (!localStorage.getItem('token')){
+   if (localStorage.getItem('token')){
       dispatch(checkauth())
    }
   }, [dispatch])
@@ -38,18 +39,18 @@ const App:FC = () => {
           <></>
           <CartProvider>
             <Routes>
-              <Route path='/' element={<Main />}></Route>
-              <Route path='/login' element={<Login />}></Route>
-              <Route path='/about' element={<About />}></Route>
-              <Route path='/support' element={<Support />}></Route>
-              <Route path='/support/:id' element={<SupportDetails />}></Route>
-              <Route path='/games' element={<Games />}></Route>
-              <Route path='/cart' element={<Cart />}></Route>
-              <Route path='/blog' element={<BlogList />}></Route>
-              <Route path='/addblog' element={<AddBlog />}></Route>
-              <Route path='/admin' element={<Dashboard />} />
-              <Route path='/editblog/:id' element={<EditBlog />}></Route>
-              <Route path='*' element={<NotFound />}></Route>
+              <Route path='/' element={user.isAuth ? <Main /> : <Navigate to="/login" />} />
+              <Route path='/login' element={ user.isAuth ? <Navigate to='/' /> : <Login />} /> 
+              <Route path='/about' element={user.isAuth ? <About /> : nl } /> 
+              <Route path='/support' element={user.isAuth ? <Support /> : nl} /> 
+              <Route path='/support/:id' element={user.isAuth ? <SupportDetails /> : nl} /> 
+              <Route path='/games' element={user.isAuth ? <Games /> : nl} /> 
+              <Route path='/cart' element={user.isAuth ? <Cart /> : nl} /> 
+              <Route path='/blog' element={user.isActivated ? <BlogList /> : nl} /> 
+              <Route path='/addblog' element={user.isActivated ? <AddBlog /> : nl} /> 
+              <Route path='/admin' element={user.isActivated ? <Dashboard /> : <h1>Activate your email</h1>} />
+              <Route path='/editblog/:id' element={user.isActivated ? <EditBlog /> : nl} /> 
+              <Route path='*' element={<NotFound />} /> 
             </Routes>
           </CartProvider>
         </GameProvider>

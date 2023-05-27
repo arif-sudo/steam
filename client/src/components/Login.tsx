@@ -4,7 +4,6 @@ import { useAppDispatch } from '../store'
 import { login, registration } from '../slice/store'
 
 const Login = () => {
-  // const [pages, setPages] = useState<string>("register");
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 

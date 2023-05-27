@@ -19,15 +19,13 @@ const Navbar0 = () => {
   const { lang } = useAppSelector(state => state.auth)
   const { mode } = useAppSelector(state => state.auth)
   const { nav } = useAppSelector(state => state.auth)
-  const { user } = useAppSelector(state => state.user)
+  // const { user } = useAppSelector(state => state.user)
   const dispatch = useAppDispatch()
 
   const navInput = useRef<HTMLElement>(null)
   const { totalItems } = useCart();
 
   const t = lang === 'en';
-
-  console.log(user, '!!')
 
   useEffect(() => {
     const body: any = document.querySelector('body')
@@ -71,13 +69,16 @@ const Navbar0 = () => {
               <NavDropdown.Item onClick={() => dispatch(setLang('az'))} >AZ</NavDropdown.Item>
               <NavDropdown.Item onClick={() => dispatch(setLang('en'))} >EN</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link className='align-self-center' >{user.email}<button onClick={() => dispatch(logout())} >Logout</button></Nav.Link>
+            <Nav.Link className='align-self-center'>
+                {/* { user !== undefined ? user.email.slice(0, -10) : ""} */}
+              <button onClick={() => dispatch(logout())} >Logout</button>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar >
 
-  ) 
+  )
 }
 
 export default Navbar0

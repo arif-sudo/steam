@@ -69,7 +69,7 @@ export const checkauth = createAsyncThunk('store/refresh', async () => {
     try {
         const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
         console.log(response)
-        localStorage.setItem('token', response.data.accessToken)
+        localStorage.setItem('token', 'response.data.accessToken')
 
     } catch (err: any) {
         console.log(err.response?.data?.message)
@@ -95,10 +95,6 @@ export const storeSlice = createSlice({
             .addCase(logout.fulfilled, (state: storeState) => {
                 state.isAuth = false;
                 state.user = {} as IUser;
-            })
-            .addCase(checkauth.fulfilled, (state: storeState, action: { type: string, payload: IUser, meta: any }) => {
-                state.isAuth = true;
-                state.user = action.payload
             })
     },
 })
