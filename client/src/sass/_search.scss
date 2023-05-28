@@ -31,25 +31,25 @@
         }
     }
     .row {
-        // height: 500px ;
-        // overflow: hidden;
-        // overflow-y: scroll;
         .searchcard{
             display: flex;
             flex-direction: column;
-            width: 100% !important;
-            height: 200px !important;
+            width: 100% ;
+            height: auto ;
             margin: 10px 0;
-            // padding: 10px;
             background-color: #333333;
             img{
                 width: auto ;
                 height: 200px !important ;
             }
             h5{
+                margin: 0;
+                margin: 10px 0;
                 font-size: 16px !important;
             }
             p {
+                margin: 0;
+                margin-bottom: 10px;
                 font-size: 13px;
             }
             .card-body{

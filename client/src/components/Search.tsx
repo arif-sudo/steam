@@ -18,7 +18,6 @@ import { GameContext } from '../context/GameContext';
 
 const Search:React.FC = () => {
   const [query, setQuery] = useState<string>('');
-  const [check, setCheck] = useState<string>('');
   const { lang } = useAppSelector(state => state.auth)
   const t = lang === 'en';
 
@@ -30,12 +29,11 @@ const Search:React.FC = () => {
       <div className="container">
         <div className="searchbar">
           <input onChange={(e:any)=>{
-            setQuery(e.target.value);
-            setCheck(e.target.value)}} type="text" placeholder={t ? "Search" : "Axtarın"}  />
+            setQuery(e.target.value)}} type="text" placeholder={t ? "Search" : "Axtarın"}  />
           <i className="fa-solid fa-magnifying-glass icon"></i>
         </div>
         <div className="row my-5">
-            {check.length === 0 
+            {query.length === 0 
             ? <></>
             : game.filter((item:any) => item.title.toLocaleLowerCase().includes(query)).map((item: any, index:number) => (
               <SingleCard
