@@ -16,8 +16,6 @@ const Hero2 = () => {
     return (
         <div id="hero2">
             <div className="container">
-
-
                 <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={50}
@@ -30,7 +28,6 @@ const Hero2 = () => {
                             width: 0,
                             slidesPerView: 1,
                         },
-
                         575: {
                             width: 768,
                             slidesPerView: 3,
@@ -44,7 +41,7 @@ const Hero2 = () => {
                     }}>
                     {game.filter((item: any) => item.category === 'midweak').map((item:any) => (
                         <SwiperSlide className='mt-5 d-flex justify-content-center'>
-                            <Card style={{ width: "300px" }} >
+                            <Card className='hero2-card' style={{ width: "300px" }} >
                                 <Card.Img variant="" src={item.image} />
                                 <Card.Body style={{ backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")` }} className="secondary" >
                                     <Card.Title>Midweek madness</Card.Title>
