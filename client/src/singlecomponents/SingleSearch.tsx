@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Card } from 'react-bootstrap'
+import {  Card } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 interface PropType {

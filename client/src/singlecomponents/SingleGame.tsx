@@ -26,10 +26,10 @@ const SingleGame: React.FC<PropType> = (props) => {
                     <h5>{props.title}</h5>
                     <div className="text-dark d-flex justify-content-between w-100">
                         <div className="d-flex align-items-center">
-                            <div className='discount'>-40% </div>
+                            <div className='discount'>{props.item.discount}%</div>
                             <div className="prices">
-                                <div className="price">20.86$</div>
-                                <div className="original_price">34.78$</div>
+                                <div className="price">{props.item.price}$</div>
+                                <div className="original_price">{props.item.originalprice}$</div>
                             </div>
                         </div>
                         <button className='addto'

@@ -32,11 +32,11 @@ const Cart = () => {
                 <Navbar0 />
                 <Container>
                     <Toast ref={toastRemove} />
-                    <h1 className='mb-5'>Your Shopping Cart</h1>
                     <Row className="g-5">
-                        {items.map((item: any) => (
-                            <Col sm="12" className='singlecart'>
-                                <Row className='cart' >
+                        <Col sm="10" lg="10" >
+                            {items.map((item: any) => (
+                                <Col className='singlecart'>
+                                    {/* <div className='cart' > */}
                                     {isMedia
                                         ? <div>
                                             <img src={item.image} className='img-fluid cartimg' alt='err' />
@@ -46,7 +46,7 @@ const Cart = () => {
                                         </Col>}
                                     <Col className='cartinfo'>
                                         <div className="text-dark d-flex flex-column">
-                                            <h5>{(item.title).slice(0, 10)}</h5>
+                                            <h5>{item.title}</h5>
                                             <div className="d-flex align-items-center">
                                                 <div className='discount'>-40% </div>
                                                 <div className="prices">
@@ -59,6 +59,9 @@ const Cart = () => {
                                     </Col>
                                     <Col className='btns'>
                                         <Button onClick={() => updateItemQuantity(item.id, item.quantity - 1)} >-</Button>
+                                        <div className='m-0 mx-2 d-flex align-items-center item_quantity'>
+                                            {item.quantity}
+                                        </div>
                                         <Button onClick={() => updateItemQuantity(item.id, item.quantity + 1)} >+</Button>
                                     </Col>
                                     <Col>
@@ -68,12 +71,34 @@ const Cart = () => {
                                         }}> DEL</button>
 
                                     </Col>
-                                    <Col className=' item_quantity'>
-                                        Count: {item.quantity}
-                                    </Col>
-                                </Row>
-                            </Col>
-                        ))}
+                                    {/* </div> */}
+                                </Col>
+                            ))}
+                        </Col>
+                        <Col sm="2" className='cart-title p-0'>
+                            <div className='your' >
+                                <h1>Y</h1>
+                                <h1>O</h1>
+                                <h1>U</h1>
+                                <h1>R</h1>
+                            </div>
+                            <div className='shopping'>
+                                <h1>S</h1>
+                                <h1>H</h1>
+                                <h1>O</h1>
+                                <h1>P</h1>
+                                <h1>P</h1>
+                                <h1>I</h1>
+                                <h1>N</h1>
+                                <h1>G</h1>
+                            </div>
+                            <div className='cart'>
+                                <h1>C</h1>
+                                <h1>A</h1>
+                                <h1>R</h1>
+                                <h1>T</h1>
+                            </div>
+                        </Col>
                     </Row>
                     <Button className='delall' onClick={() => emptyCart()}>DELETE ALL</Button>
                 </Container>
