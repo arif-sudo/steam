@@ -33,7 +33,6 @@ class TokenService{
         const tokenData = await TokenModel.findOne({user: userId});
         if (tokenData){
             tokenData.refreshToken = refreshToken;
-            console.log(refreshToken, 'isdiyiesen?')
             return tokenData.save();
         }
 
@@ -48,9 +47,7 @@ class TokenService{
     }
 
     async findToken(refreshToken){
-        console.log(refreshToken,'rfrdsh TOKEN')
         const tokenData = await TokenModel.findOne({refreshToken});
-        console.log(tokenData, 'tapdin?')
         return tokenData
     }
 }

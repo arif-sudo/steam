@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useMediaQuery } from 'usehooks-ts';
 
+import { useAppSelector } from '../store';
 
 
 
@@ -18,6 +19,9 @@ const Hero1 = () => {
     const isMedia = useMediaQuery('(max-width: 767px)')
     const isMediaImagesR1 = useMediaQuery('(max-width: 1057px)')
     const isMediaImageR = useMediaQuery('(max-width: 1364px)')
+    const {lang} = useAppSelector(state => state.auth)
+
+    const t = lang === 'en';  
     return (
         <>
             <div id="hero1">
@@ -29,16 +33,15 @@ const Hero1 = () => {
                                     <img src="https://store.cloudflare.steamstatic.com/public/images//gift/steamcards_promo_02.png" alt="" />
                                     <div className="list">
                                         <ul className=''>
-                                            <li>Gift Cards</li>
-                                            <li>Now aviable on steam</li>
-                                            <li></li>
-                                            <li>Recomended</li>
-                                            <li>By Friends</li>
-                                            <li>By Curators</li>
-                                            <li>Tags</li>
-                                            <li>Top Sellers</li>
-                                            <li>New Releases</li>
-                                            <li>Upcoming</li>
+                                            <li>{t ? "Gift Cards":"Hədiyyə Kartları" }</li>
+                                            <li>{t ? "Now aviable on steam" : "İndi Steam də mövcuddur"}</li>
+                                            <li>{t ? "Recomended" : "Tövsiyə olunur"}</li>
+                                            <li>{t ? "By Friends" : "Dostlar tərəfindən"} </li>
+                                            <li>{t ? "By Curators" : "Kuratorlar tərəfindən"} </li>
+                                            <li>{t ? "Tags" : "Teqlər"} </li>
+                                            <li>{t ? "Top Sellers" : "Ən çox satanlar"} </li>
+                                            <li>{t ? "New Releases" : "Yeni buraxılışlar"} </li>
+                                            <li>{t ? "Upcoming" : "Qarşıdan gələn"} </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -70,10 +73,10 @@ const Hero1 = () => {
                                                 </div>}
                                             </div>
                                             <div className=''>
-                                                <h4>Now aviable</h4>
+                                                <h4>{t? "Now available" : "Artıq mövcuddur"}</h4>
                                                 <div className='d-flex justify-content-between'>
-                                                    <p>Top Seller</p>
-                                                    <p>Free</p>
+                                                    <p>{t ? "Top Seller" : "Ən çox satan"} </p>
+                                                    <p>{t ? "Free" : "Pulsuz"}</p>
                                                 </div>
                                             </div>
                                         </div>}

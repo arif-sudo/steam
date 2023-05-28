@@ -70,8 +70,7 @@ const Navbar0 = () => {
               <NavDropdown.Item onClick={() => dispatch(setLang('en'))} >EN</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link className='align-self-center'>
-                {/* { user !== undefined ? user.email.slice(0, -10) : ""} */}
-              <button onClick={() => dispatch(logout())} >Logout</button>
+              <button className='btn btn-black border-0 text-white rounded-2 py-1 px-2 fs-6' onClick={() => dispatch(logout())} >Logout</button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

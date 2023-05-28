@@ -65,14 +65,15 @@ export const logout = createAsyncThunk('store/logout', async () => {
     }
 });
 
-export const checkauth = createAsyncThunk('store/refresh', async () => {
+export const checkauth = createAsyncThunk('store/refresh', async ({ rejectWithValue }: any) => {
     try {
         const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
+        localStorage.setItem('token', response.data.accessToken)
         console.log(response)
-        localStorage.setItem('token', 'response.data.accessToken')
+        return response.data.user
 
-    } catch (err: any) {
-        console.log(err.response?.data?.message)
+    } catch (error: any) {
+        return rejectWithValue(error.response?.data?.message);
     }
 })
 
@@ -95,6 +96,11 @@ export const storeSlice = createSlice({
             .addCase(logout.fulfilled, (state: storeState) => {
                 state.isAuth = false;
                 state.user = {} as IUser;
+            })
+            .addCase(checkauth.fulfilled, (state: storeState, action: { type: string, payload: IUser, meta: any }) => {
+                state.isAuth = true;
+                state.user = action.payload;
+                console.log(action.payload, 'sala,')
             })
     },
 })

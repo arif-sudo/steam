@@ -24,10 +24,10 @@ class UserService{
         await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)//popravim
         
         const userDto =  new UserDto(user); //id email isActivated
+        console.log(userDto, 'register dto')
         const tokens = tokenService.generateTokens({...userDto})//generateToken func expects an object not reference thats why we using spread operator
         
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
-        console.log(tokens.refreshToken, 'saved in db')
 
         return {...tokens,  user: userDto}// refresh , acces token, and user informarion are saved/returned
     }
@@ -53,6 +53,7 @@ class UserService{
             throw ApiError.BadRequest("Incorrect password")
         } 
         const userDto = new UserDto(user);
+        console.log(userDto, 'login dto')
         const tokens =  tokenService.generateTokens({...userDto});
 
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
@@ -65,24 +66,24 @@ class UserService{
     }
 
     async refresh(refreshToken){
-        console.log(refreshToken)
         if (!refreshToken){
             throw ApiError.UnauthorizedError();
         }
         const userData = tokenService.validateRefreshToken(refreshToken);
-        const tokenFromDb = await tokenService.findToken(refreshToken)
+        const tokenFromDb = await tokenService.findToken(refreshToken);
         if(!userData || !tokenFromDb){
-            console.log(userData)
-            console.log(tokenFromDb)
+            console.log(userData, '1')
+            console.log(tokenFromDb, '2')
             throw ApiError.UnauthorizedError();
         }
-        const user = await  UserModel.findById(userData.id);
+        const user = await UserModel.findById(userData.id);
         const userDto = new UserDto(user);
         const tokens = tokenService.generateTokens({...userDto});
 
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        console.log(userDto)
         return {...tokens, user: userDto}
-    }
+    } 
 
     async getAllUsers(){
         const users = await UserModel.find();//returns all

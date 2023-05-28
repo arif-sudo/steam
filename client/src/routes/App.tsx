@@ -27,8 +27,10 @@ const App:FC = () => {
   useEffect(() => {
    if (localStorage.getItem('token')){
       dispatch(checkauth())
+      console.log(user)
    }
-  }, [dispatch])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   
 
   return (
@@ -46,10 +48,10 @@ const App:FC = () => {
               <Route path='/support/:id' element={user.isAuth ? <SupportDetails /> : nl} /> 
               <Route path='/games' element={user.isAuth ? <Games /> : nl} /> 
               <Route path='/cart' element={user.isAuth ? <Cart /> : nl} /> 
-              <Route path='/blog' element={user.isActivated ? <BlogList /> : nl} /> 
-              <Route path='/addblog' element={user.isActivated ? <AddBlog /> : nl} /> 
-              <Route path='/admin' element={user.isActivated ? <Dashboard /> : <h1>Activate your email</h1>} />
-              <Route path='/editblog/:id' element={user.isActivated ? <EditBlog /> : nl} /> 
+              <Route path='/blog' element={user.user.isActivated ? <BlogList /> : nl} /> 
+              <Route path='/addblog' element={user.user.isActivated ? <AddBlog /> : nl} /> 
+              <Route path='/admin' element={user.user.isActivated ? <Dashboard /> : <h1>Activate your email</h1>} />
+              <Route path='/editblog/:id' element={user.user.isActivated ? <EditBlog /> : nl} /> 
               <Route path='*' element={<NotFound />} /> 
             </Routes>
           </CartProvider>
