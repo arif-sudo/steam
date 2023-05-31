@@ -30,9 +30,9 @@ const Cart = () => {
         : (
             <div id='cart'>
                 <Navbar0 />
-                <Container>
+                <Container className='mt-5' >
                     <Toast ref={toastRemove} />
-                    <Row className="g-5">
+                    <Row className="g-5 mt-5">
                         <Col sm="10" lg="10" >
                             {items.map((item: any) => (
                                 <Col className='singlecart'>
