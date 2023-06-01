@@ -32,46 +32,46 @@ const Cart = () => {
                 <Navbar0 />
                 <Container className='mt-5' >
                     <Toast ref={toastRemove} />
-                    <Row className="g-5 mt-5">
-                        <Col sm="10" lg="10" >
+                    <Row className="d-flex justify-content-center mt-5">
+                        <Col  sm="12" md="10" lg="10" >
                             {items.map((item: any) => (
                                 <Col className='singlecart'>
-                                    {/* <div className='cart' > */}
-                                    {isMedia
-                                        ? <div>
-                                            <img src={item.image} className='img-fluid cartimg' alt='err' />
-                                        </div>
-                                        : <Col>
-                                            <img src={item.image} className='img-fluid cartimg' alt='err' />
-                                        </Col>}
-                                    <Col className='cartinfo'>
-                                        <div className="text-dark d-flex flex-column">
-                                            <h5>{item.title}</h5>
-                                            <div className="d-flex align-items-center">
-                                                <div className='discount'>-40% </div>
-                                                <div className="prices">
-                                                    <div className="price">20.86$</div>
-                                                    <div className="original_price">34.78$</div>
+                                    <div className='cart' >
+                                        {isMedia
+                                            ? <div>
+                                                <img src={item.image} className='img-fluid cartimg' alt='err' />
+                                            </div>
+                                            : <Col>
+                                                <img src={item.image} className='img-fluid cartimg' alt='err' />
+                                            </Col>}
+                                        <Col className='cartinfo'>
+                                            <div className="text-dark d-flex flex-column">
+                                                <h5>{item.title}</h5>
+                                                <div className="d-flex align-items-center">
+                                                    <div className='discount'>-40% </div>
+                                                    <div className="prices">
+                                                        <div className="price">20.86$</div>
+                                                        <div className="original_price">34.78$</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                    </Col>
-                                    <Col className='btns'>
-                                        <Button onClick={() => updateItemQuantity(item.id, item.quantity - 1)} >-</Button>
-                                        <div className='m-0 mx-2 d-flex align-items-center item_quantity'>
-                                            {item.quantity}
-                                        </div>
-                                        <Button onClick={() => updateItemQuantity(item.id, item.quantity + 1)} >+</Button>
-                                    </Col>
-                                    <Col>
-                                        <button className='del' onClick={() => {
-                                            toastRemove.current.show({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
-                                            removeItem(item.id);
-                                        }}> DEL</button>
+                                        </Col>
+                                        <Col className='btns m-0'>
+                                            <Button onClick={() => updateItemQuantity(item.id, item.quantity - 1)} >-</Button>
+                                            <div className='m-0 mx-2 text-white d-flex align-items-center item_quantity'>
+                                                {item.quantity}
+                                            </div>
+                                            <Button onClick={() => updateItemQuantity(item.id, item.quantity + 1)} >+</Button>
+                                        </Col>
+                                        <Col>
+                                            <button className='del' onClick={() => {
+                                                toastRemove.current.show({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
+                                                removeItem(item.id);
+                                            }}> DEL</button>
 
-                                    </Col>
-                                    {/* </div> */}
+                                        </Col>
+                                    </div>
                                 </Col>
                             ))}
                         </Col>

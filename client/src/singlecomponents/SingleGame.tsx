@@ -26,10 +26,10 @@ const SingleGame: React.FC<PropType> = (props) => {
                     <h5>{props.title}</h5>
                     <div className="text-dark d-flex justify-content-between w-100">
                         <div className="d-flex align-items-center">
-                            <div className='discount'>{props.item.discount}%</div>
+                            <div className={`discount ${props.item.discount === "0" ? 'd-none' : ""} `}>{props.item.discount}%</div>
                             <div className="prices">
-                                <div className="price">{props.item.price}$</div>
-                                <div className="original_price">{props.item.originalprice}$</div>
+                                <div className="price">{props.item.price === '0' ? "FREE" : props.item.price + '$'}</div>
+                                <div className={`original_price ${props.item.discount === "0" ? 'd-none' : ""}`}>{props.item.originalprice}$</div>
                             </div>
                         </div>
                         <button className='addto'

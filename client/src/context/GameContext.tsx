@@ -22,7 +22,7 @@ export const GameProvider = (props: propsType) => {
     const [state, setState] = useState<stateType[]>([]);
 
     useEffect(() => {
-        axios.get('https://mocki.io/v1/d2582c95-f283-4933-8b4f-33e429f62ab7').then(res => setState(res.data))
+        axios.get('https://mocki.io/v1/06e21756-73a6-40e6-99f6-5ccfd870b333').then(res => setState(res.data))
           
     }, [])
 

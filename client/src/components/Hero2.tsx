@@ -42,17 +42,17 @@ const Hero2 = () => {
                     {game.filter((item: any) => item.category === 'midweak').map((item:any) => (
                         <SwiperSlide className='mt-5 d-flex justify-content-center'>
                             <Card className='hero2-card' style={{ width: "300px" }} >
-                                <Card.Img variant="" src={item.image} />
+                                <Card.Img variant="" src={item.imagev} />
                                 <Card.Body style={{ backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")` }} className="secondary" >
                                     <Card.Title>Midweek madness</Card.Title>
                                     <Card.Text>
                                         offer ends 6 Apr @ 9:00pm.
                                     </Card.Text>
                                     <div className="d-flex align-items-center">
-                                        <div className='discount'>{item.discount}%</div>
+                                        <div className={`discount  ${item.discount === "0" ? 'd-none' : ""}`}>{item.discount === '0' ? "" : item.discount + '%'}</div>
                                         <div className="prices">
                                             <div className="price">{item.price}$</div>
-                                            <div className="original_price">{item.originalprice}$</div>
+                                            <div className={`original_price ${item.discount === "0" ? 'd-none' : ""}`}>{item.originalprice}$</div>
                                         </div>
                                     </div>
                                 </Card.Body>
