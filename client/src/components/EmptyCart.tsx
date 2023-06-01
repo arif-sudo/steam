@@ -11,12 +11,12 @@ const EmptyCart = () => {
                 <div className="row">
                     <div className="col">
                         <div className="d-flex align-items-center ">
-                            <h1>The Cart is Empty</h1>
+                            <h1>{t?"The Cart is Empty":"Səbət Boşdur"}</h1>
                             <i className="fa-solid fa-shopping-cart"></i>
                         </div>
-                        <p>Add some games  to your cart!</p>
+                        <p>{t?"Add some games  to your cart!":"Səbətinizə bir neçə oyun əlavə edin!"}</p>
                         <Link to="/games" >
-                            <button>Return to the games page</button>
+                            <button>{t?"Return to the games page":"Oyunlar səhifəsinə qayıdın"}</button>
                         </Link>
                     </div>
                 </div>

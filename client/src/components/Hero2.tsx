@@ -11,8 +11,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useAppSelector } from '../store';
 const Hero2 = () => {
+    const {lang} = useAppSelector(state => state.auth)
     const [game] = useContext<any>(GameContext);
+    const t = lang === 'en'
     return (
         <div id="hero2">
             <div className="container">
@@ -46,7 +49,7 @@ const Hero2 = () => {
                                 <Card.Body style={{ backgroundImage: `url("https://store.akamai.steamstatic.com/public/images/v6/home/background_spotlight.jpg")` }} className="secondary" >
                                     <Card.Title>Midweek madness</Card.Title>
                                     <Card.Text>
-                                        offer ends 6 Apr @ 9:00pm.
+                                        {t?"Offer ends 25 July @ 9:00pm.":"Təklif 25 iyul saat 21:00-da başa çatır."}
                                     </Card.Text>
                                     <div className="d-flex align-items-center">
                                         <div className={`discount  ${item.discount === "0" ? 'd-none' : ""}`}>{item.discount === '0' ? "" : item.discount + '%'}</div>

@@ -6,6 +6,7 @@ import { Toast } from 'primereact/toast';
 import 'primereact/resources/themes/saga-green/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import { useAppSelector } from '../store';
 
 interface PropType {
     item: any;
@@ -15,8 +16,10 @@ interface PropType {
 }
 
 const SingleGame: React.FC<PropType> = (props) => {
+    const {lang} = useAppSelector(state => state.auth)
     const { addItem } = useCart();
     const toast: any = useRef(null)
+    const t = lang === 'en'
     return (
         <Col sm="6" lg="4" className='singlegame'>
             <Toast ref={toast} position="bottom-right" />
@@ -34,7 +37,7 @@ const SingleGame: React.FC<PropType> = (props) => {
                         </div>
                         <button className='addto'
                             onClick={() => {
-                                toast.current.show({ severity: 'success', summary: 'Message', detail: 'Item added', life: 2500 });
+                                toast.current.show({ severity: 'success', summary: `${t?"Message":"Mesaj"}`, detail: `${t?"Item added":"Element əlavə edildi"}`, life: 2500 });
                                 addItem(props.item)
                             }}>Add to Cart
                         </button>

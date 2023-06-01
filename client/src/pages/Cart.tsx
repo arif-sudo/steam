@@ -69,7 +69,7 @@ const Cart = () => {
                                         </Col>
                                         <Col>
                                             <button className='del' onClick={() => {
-                                                toastRemove.current.show({ severity: 'error', summary: 'Message', detail: 'Item deleted', life: 3000 });
+                                                toastRemove.current.show({ severity: 'error', summary: `${t?"Message":"Mesaj"}`, detail: `${t?"Item deleted":"Element silindi"}`, life: 3000 });
                                                 removeItem(item.id);
                                             }}>{t?"DEL":"SIL"}</button>
 
