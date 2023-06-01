@@ -139,19 +139,18 @@
 
     .cart-title {
         margin: 0;
+        padding: 0;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
+        align-items: start;
         font-size: 10px;
         color: cornflowerblue;
         h1 {
             margin: 10px;
             font-size: 38px;
+            font-weight: 900;
             color: cornflowerblue;
             text-align: center;
-        }
-        .your {
-            height: auto;
         }
     }
 
@@ -178,8 +177,13 @@
     height: 100vh;
 }
 @media screen and (max-width: 768px) {
-    .cart-title {
-        display: none
+    .cart-title-child {
+        display: flex;
+        flex-direction: column;
+        // display: none
+        .your, .shopping, .cart {
+            display: flex;
+        }
     }
 }
 

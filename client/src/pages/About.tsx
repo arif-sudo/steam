@@ -266,7 +266,6 @@ const About: React.FC = () => {
                                                 <Card.Text className='feature_text'>
                                                     {t ? "Everything about your game, all in one place. Join discussions, upload content, and be the first to know about new updates." : "Oyununuzla bağlı hər şey, hamısı bir yerdə. Müzakirələrə qoşulun, məzmun yükləyin və yeni yeniləmələrdən ilk siz xəbərdar olun."}
                                                 </Card.Text>
-                                                <h5>{t ? "Learn more" : "Daha ətraflı"} &rarr;</h5>
                                             </Card.Body>
                                         </Card>
                                     </div>

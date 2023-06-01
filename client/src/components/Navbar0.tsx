@@ -44,14 +44,13 @@ const Navbar0 = () => {
         <NavLink to='/'><Navbar.Brand style={{ color: "#FFFFFF8C" }} className='d-flex align-items-center '><i className="fa-brands fa-steam mx-1 fs-3"></i>Steam</Navbar.Brand></NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link ><NavLink to="/blog">Blog</NavLink></Nav.Link>
-            <Nav.Link ><NavLink to="/games">{t ? "Games" : "Oyunlar"}</NavLink></Nav.Link>
-            <Nav.Link ><NavLink to="/about">{t ? "About" : "Haqqında"}</NavLink></Nav.Link>
-            <Nav.Link >{t ? "Chat" : "Söhbət"}</Nav.Link>
-            <Nav.Link ><NavLink to="/admin">Admin</NavLink></Nav.Link>
-            <Nav.Link ><NavLink to="/support">{t ? "Support" : "Dəstək"}</NavLink></Nav.Link>
-            <div id="profile"><Nav.Link ><NavLink to="/cart">{t ? "Cart" : "Səbət"}<span>{totalItems}</span></NavLink></Nav.Link></div>
+          <Nav className="mx-auto">
+            <Nav.Link ><NavLink className='navl'to="/blog">Blog</NavLink></Nav.Link>
+            <Nav.Link ><NavLink className='navl'to="/games">{t ? "Games" : "Oyunlar"}</NavLink></Nav.Link>
+            <Nav.Link ><NavLink className='navl'to="/about">{t ? "About us" : "Haqqımızda"}</NavLink></Nav.Link>
+            <Nav.Link ><NavLink className='navl'to="/admin">Admin</NavLink></Nav.Link>
+            <Nav.Link ><NavLink className='navl'to="/support">{t ? "Support" : "Dəstək"}</NavLink></Nav.Link>
+            <div id="profile"><Nav.Link ><NavLink className='navl'to="/cart">{t ? "Cart" : "Səbət"}<span>{totalItems}</span></NavLink></Nav.Link></div>
           </Nav>
           <Nav>
 

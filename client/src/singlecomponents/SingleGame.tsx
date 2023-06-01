@@ -34,7 +34,7 @@ const SingleGame: React.FC<PropType> = (props) => {
                         </div>
                         <button className='addto'
                             onClick={() => {
-                                toast.current.show({ severity: 'success', summary: 'Message', detail: 'Message Content', life: 2500 });
+                                toast.current.show({ severity: 'success', summary: 'Message', detail: 'Item added', life: 2500 });
                                 addItem(props.item)
                             }}>Add to Cart
                         </button>
