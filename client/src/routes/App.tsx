@@ -24,10 +24,11 @@ const App:FC = () => {
   const {user} = useAppSelector(state => state)
   const dispatch = useAppDispatch()
   const nl = <Navigate to='/login' />
+
   useEffect(() => {
    if (localStorage.getItem('token')){
+      console.log("checkauth")
       dispatch(checkauth())
-      console.log(user)
    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

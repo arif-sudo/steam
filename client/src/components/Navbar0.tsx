@@ -19,7 +19,7 @@ const Navbar0 = () => {
   const { lang } = useAppSelector(state => state.auth)
   const { mode } = useAppSelector(state => state.auth)
   const { nav } = useAppSelector(state => state.auth)
-  // const { user } = useAppSelector(state => state.user)
+  const { user } = useAppSelector(state => state.user)
   const dispatch = useAppDispatch()
 
   const navInput = useRef<HTMLElement>(null)
@@ -50,6 +50,7 @@ const Navbar0 = () => {
             <Nav.Link ><NavLink className='navl'to="/about">{t ? "About us" : "Haqqımızda"}</NavLink></Nav.Link>
             <Nav.Link ><NavLink className='navl'to="/admin">Admin</NavLink></Nav.Link>
             <Nav.Link ><NavLink className='navl'to="/support">{t ? "Support" : "Dəstək"}</NavLink></Nav.Link>
+            <Nav.Link ><NavLink className='navl'to="/wishlist">{t ? "Wishlist" : "Istək siyahısı"}</NavLink></Nav.Link>
             <div id="profile"><Nav.Link ><NavLink className='navl'to="/cart">{t ? "Cart" : "Səbət"}<span>{totalItems}</span></NavLink></Nav.Link></div>
           </Nav>
           <Nav>
@@ -68,8 +69,9 @@ const Navbar0 = () => {
               <NavDropdown.Item onClick={() => dispatch(setLang('az'))} >AZ</NavDropdown.Item>
               <NavDropdown.Item onClick={() => dispatch(setLang('en'))} >EN</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link className='align-self-center'>
-              <button className='btn btn-black border-0 text-white rounded-2 py-1 px-2 fs-6' onClick={() => dispatch(logout())} >Logout</button>
+            <Nav.Link className='align-self-center d-flex'>
+              <button className='btn btn-black border-0 text-white rounded-2 py-1 px-2 fs-6' onClick={() => dispatch(logout())} >{t?"Logout":"Çıxış"}</button>
+              <p className='p-1 m-0 text-white' >{user.email.slice(0, -10)}</p>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

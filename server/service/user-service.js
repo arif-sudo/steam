@@ -24,7 +24,6 @@ class UserService{
         await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)//popravim
         
         const userDto =  new UserDto(user); //id email isActivated
-        console.log(userDto, 'register dto')
         const tokens = tokenService.generateTokens({...userDto})//generateToken func expects an object not reference thats why we using spread operator
         
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
@@ -53,7 +52,6 @@ class UserService{
             throw ApiError.BadRequest("Incorrect password")
         } 
         const userDto = new UserDto(user);
-        console.log(userDto, 'login dto')
         const tokens =  tokenService.generateTokens({...userDto});
 
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
@@ -70,18 +68,18 @@ class UserService{
             throw ApiError.UnauthorizedError();
         }
         const userData = tokenService.validateRefreshToken(refreshToken);
-        const tokenFromDb = await tokenService.findToken(refreshToken);
+        const tokenFromDb = tokenService.findToken(refreshToken); 
         if(!userData || !tokenFromDb){
-            console.log(userData, '1')
-            console.log(tokenFromDb, '2')
             throw ApiError.UnauthorizedError();
         }
+
+        //the code below is the reason that tokenFromDb is null; Find the way that the code above is execites first and then the one that below
+
         const user = await UserModel.findById(userData.id);
         const userDto = new UserDto(user);
         const tokens = tokenService.generateTokens({...userDto});
 
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
-        console.log(userDto)
         return {...tokens, user: userDto}
     } 
 

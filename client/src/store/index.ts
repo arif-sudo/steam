@@ -1,6 +1,7 @@
 import authReducer from '../slice/index'
 import storeReducer from '../slice/store'
 import { blogReducer } from '../myredux/reducer';
+import wishlistReducer from '../myredux/wishlistReducer';
 import { configureStore } from "@reduxjs/toolkit"
 import { combineReducers } from 'redux'
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
@@ -20,7 +21,8 @@ import storage from "redux-persist/lib/storage"
 const rootReducer = combineReducers({
   auth: authReducer,
   blogs: blogReducer,
-  user: storeReducer
+  user: storeReducer,
+  wish: wishlistReducer
 })
 
 const persistConfig = {key: "root", storage: storage}

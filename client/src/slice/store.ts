@@ -65,15 +65,16 @@ export const logout = createAsyncThunk('store/logout', async () => {
     }
 });
 
-export const checkauth = createAsyncThunk('store/refresh', async ({ rejectWithValue }: any) => {
+export const checkauth = createAsyncThunk('store/refresh', async () => {
     try {
         const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
         localStorage.setItem('token', response.data.accessToken)
-        console.log(response)
+        console.log("check_auth_back")
         return response.data.user
 
     } catch (error: any) {
-        return rejectWithValue(error.response?.data?.message);
+        console.log(error.response?.data?.message)
+        // return rejectWithValue(error.response?.data?.message);
     }
 })
 
