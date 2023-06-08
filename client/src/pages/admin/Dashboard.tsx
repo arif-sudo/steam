@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button } from "react-bootstrap";
 import Navbar0 from "../../components/Navbar0";
+import { useAppSelector } from "../../store";
 
 interface Blog {
   id: number;
@@ -13,21 +14,39 @@ interface Blog {
   image: string;
 }
 
-interface BlogState {
+interface Wish {
+  id: number;
+  title: string;
+  price: string;
+  image: string;
+}
+
+interface State {
   blogs: Blog[];
+  wishs: Wish[]
 }
 
 interface RootState {
-  blogs: Array<{
-    id: number,
-    title: string,
-    description: string,
-    image: string
-  }>;
+  posts: {
+      blogs: Array<{
+          id: number,
+          title: string,
+          description: string,
+          image: string
+      }>
+      wishs: Array<{
+          id: number;
+          title: string;
+          price: string;
+          image: string;
+      }>
+  }
 }
 
 const Dashboard = () => {
-  const { blogs }: BlogState[] | any = useSelector((state: RootState) => state.blogs);//cant figure out type of blogs    
+  const { blogs }: State[] | any = useAppSelector((state: RootState) => state.posts);//cant figure out type of blogs    
+  const {lang} = useAppSelector(state => state.auth)
+  const t = lang === 'en'
   return (
     <div id="dashboard" >
       <Navbar0 />
@@ -36,10 +55,10 @@ const Dashboard = () => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th className="" >Edit</th>
+            <th>{t?"Iamge":"Şəkil"}</th>
+            <th>{t?"Title":"Başlıq"}</th>
+            <th>{t?"Description":"Təsvir"}</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -49,7 +68,7 @@ const Dashboard = () => {
         </tbody>
       </Table>
       <LinkContainer to="/addblog">
-        <Button variant="success" >Add blog</Button>
+        <Button variant="success" >{t?"Add blog":"BLog əlavə edin"}</Button>
       </LinkContainer>
     </div>
   )

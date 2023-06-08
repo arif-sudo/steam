@@ -2,11 +2,12 @@ import React, { useContext } from 'react'
 import SingleGame from '../singlecomponents/SingleGame';
 import Navbar0 from '../components/Navbar0';
 import { GameContext } from '../context/GameContext';
+import { useAppSelector } from '../store';
 
 const Games = () => {
   const [game] = useContext<any>(GameContext);
-
-
+  const {lang} = useAppSelector(state => state.auth);
+  const t = lang === 'en';
 
   return (
     <div id='games'>
@@ -14,7 +15,7 @@ const Games = () => {
       <div className="container">
         <div className="row mb-5">
           <div className="col">
-            <h1>Games</h1>
+            <h1>{t?"Games":"Oyunlar"}</h1>
           </div>
         </div>
         <div className="row g-3">

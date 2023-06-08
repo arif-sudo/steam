@@ -51,9 +51,9 @@ const Cart = () => {
                                             <div className="text-dark d-flex flex-column">
                                                 <h5>{item.title}</h5>
                                                 <div className="d-flex align-items-center">
-                                                    <div className='discount'>{item.discount}%</div>
+                                                    <div className={`discount ${item.discount === "0" ? 'd-none' : ""} `}>{item.discount}%</div>
                                                     <div className="prices">
-                                                        <div className="price">{(item.price * item.quantity).toFixed(2)}$</div>
+                                                        <div className="price">{item.price === '0' ? "FREE" : (item.price * item.quantity).toFixed(2) + '$'}</div>
                                                         <div className="original_price">{item.originalprice}$</div>
                                                     </div>
                                                 </div>
@@ -69,9 +69,9 @@ const Cart = () => {
                                         </Col>
                                         <Col>
                                             <button className='del' onClick={() => {
-                                                toastRemove.current.show({ severity: 'error', summary: `${t?"Message":"Mesaj"}`, detail: `${t?"Item deleted":"Element silindi"}`, life: 3000 });
+                                                toastRemove.current.show({ severity: 'error', summary: `${t ? "Message" : "Mesaj"}`, detail: `${t ? "Item deleted" : "Element silindi"}`, life: 3000 });
                                                 removeItem(item.id);
-                                            }}>{t?"DEL":"SIL"}</button>
+                                            }}>{t ? "DEL" : "SIL"}</button>
 
                                         </Col>
                                     </div>
@@ -81,32 +81,56 @@ const Cart = () => {
                         <Col sm="2" className='cart-title p-0'>
                             <div className="cart-title-child d-flex justify-content-between align-items-center ">
                                 <div className='your' >
-                                    <h1>{t?"Y":"A"}</h1>
-                                    <h1>{t?"O":"L"}</h1>
-                                    <h1>{t?"U":"I"}</h1>
-                                    <h1>{t?"R":"Ş"}</h1>
+                                    <h1>{t ? "Y" : "A"}</h1>
+                                    <h1>{t ? "O" : "L"}</h1>
+                                    <h1>{t ? "U" : "I"}</h1>
+                                    <h1>{t ? "R" : "Ş"}</h1>
                                 </div>
                                 <div className='shopping'>
-                                    <h1>{t?"S":"S"}</h1>
-                                    <h1>{t?"H":"Ə"}</h1>
-                                    <h1>{t?"O":"B"}</h1>
-                                    <h1>{t?"P":"Ə"}</h1>
-                                    <h1>{t?"P":"T"}</h1>
-                                    <h1>{t?"I":"İ"}</h1>
-                                    <h1>{t?"N":"N"}</h1>
-                                    <h1>{t?"G":"İ"}</h1>
-                                    <h1>{t?"":"Z"}</h1>
+                                    <h1>{t ? "S" : "S"}</h1>
+                                    <h1>{t ? "H" : "Ə"}</h1>
+                                    <h1>{t ? "O" : "B"}</h1>
+                                    <h1>{t ? "P" : "Ə"}</h1>
+                                    <h1>{t ? "P" : "T"}</h1>
+                                    <h1>{t ? "I" : "İ"}</h1>
+                                    <h1>{t ? "N" : "N"}</h1>
+                                    <h1>{t ? "G" : "İ"}</h1>
+                                    <h1>{t ? "" : "Z"}</h1>
                                 </div>
                                 <div className='cart'>
-                                    <h1>{t?"C":""}</h1>
-                                    <h1>{t?"A":""}</h1>
-                                    <h1>{t?"R":""}</h1>
-                                    <h1>{t?"T":""}</h1>
+                                    <h1>{t ? "C" : ""}</h1>
+                                    <h1>{t ? "A" : ""}</h1>
+                                    <h1>{t ? "R" : ""}</h1>
+                                    <h1>{t ? "T" : ""}</h1>
                                 </div>
                             </div>
                         </Col>
                     </Row>
-                    <Button className='delall' onClick={() => emptyCart()}>{t?"DELETE ALL":"HAMISINI SİL"}</Button>
+                    {/* <Button className='buy' onClick={() => emptyCart()}>{t?"Buy items":"Əşyaları alın"}</Button> */}
+                    <div>
+                        {/* Button trigger modal */}
+                        <button type="button" onClick={() => emptyCart()} className="btn btn-primary buy" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            {t ? "Buy items" : "Əşyaları alın"}
+                        </button>
+                        {/* Modal */}
+                        <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog">
+                                <div className="modal-content bg-dark ">
+                                    <div className="modal-header">
+                                        <h1 className="modal-title  fs-5" id="exampleModalLabel">Modal {t?"title":"başlıq"}</h1>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                                    </div>
+                                    <div className="modal-body">
+                                        {t ? "Your purchase was succesfully completed!!" : "Alış-verişiniz uğurla tamamlandı!!"}    
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">{t?"Close":"Bağlayın"}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </Container>
             </div>
         )

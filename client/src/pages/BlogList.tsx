@@ -10,22 +10,37 @@ interface Blog {
     image: string;
 }
 
-interface BlogState {
+interface Wish {
+    id: number;
+    title: string;
+    price: string;
+    image: string;
+}
+
+interface State {
     blogs: Blog[];
+    wishs: Wish[]
 }
 
 interface RootState {
-    blogs: Array<{
-        id: number,
-        title: string,
-        description: string,
-        image: string
-    }>;
+    posts: {
+        blogs: Array<{
+            id: number,
+            title: string,
+            description: string,
+            image: string
+        }>
+        wishs: Array<{
+            id: number;
+            title: string;
+            price: string;
+            image: string;
+        }>
+    }
 }
 
 const BlogList = () => {
-
-    const { blogs }: BlogState[] | any = useSelector((state: RootState) => state.blogs);//cant figure out type of blogs    
+    const { blogs }: State[] | any = useSelector((state: RootState) => state.posts);//cant figure out type of blogs    
     return (
         <div id="bloglist">
             <Navbar0 />

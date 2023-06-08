@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Col } from 'react-bootstrap'
 import { useCart } from 'react-use-cart'
 
@@ -7,6 +7,9 @@ import 'primereact/resources/themes/saga-green/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { useAppSelector } from '../store';
+import { useAppDispatch } from '../store';
+
+import { addWish, removeWish } from '../myredux/action';
 
 interface PropType {
     item: any;
@@ -17,14 +20,30 @@ interface PropType {
 
 const SingleGame: React.FC<PropType> = (props) => {
     const {lang} = useAppSelector(state => state.auth)
+    const dispatch = useAppDispatch();
     const { addItem } = useCart();
     const toast: any = useRef(null)
     const t = lang === 'en'
+    const [ iconColor, setIconColor ] = useState('');  
+
+    const handleWish = () => {
+        if(iconColor === ''){
+         setIconColor('danger');
+         dispatch(addWish(props.item))
+        }else {
+            setIconColor('');
+            dispatch(removeWish(props.item))
+        }
+        
+    }
+
     return (
         <Col sm="6" lg="4" className='singlegame'>
             <Toast ref={toast} position="bottom-right" />
             <div className='card'>
                 <img src={props.photo} alt='err' />
+                <i onClick={handleWish} className={`fa-solid text-${iconColor} fa-heart heart-icon `}></i> 
+
                 <div className='cartinfo'>
                     <h5>{props.title}</h5>
                     <div className="text-dark d-flex justify-content-between w-100">
