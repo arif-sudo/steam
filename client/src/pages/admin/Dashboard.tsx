@@ -1,7 +1,6 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import DashboardItem from "./DashboardItem";
-import { useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button } from "react-bootstrap";
 import Navbar0 from "../../components/Navbar0";
@@ -62,7 +61,7 @@ const Dashboard = () => {
           </tr>
         </thead>
         <tbody>
-          {blogs.map((blog: any, index: number) => {
+          {blogs.map((blog: Blog, index: number) => {
             return <DashboardItem key={index} title={blog.title} image={blog.image} description={blog.description} count={index} id={blog.id} />
           })}
         </tbody>

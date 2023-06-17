@@ -18,12 +18,20 @@ interface BlogState {
 }
 
 interface RootState {
-  blogs: Array<{
-    id: number,
-    title: string,
-    description: string,
-    image: string
-  }>;
+  posts: {
+    blogs: Array<{
+      id: number,
+      title: string,
+      description: string,
+      image: string
+    }>,
+    wishs: Array<{
+      id: number;
+      title: string;
+      price: string;
+      image: string;
+    }>
+  }
 }
 
 
@@ -32,7 +40,7 @@ const EditBlog: React.FC = () => {
   let { id } = useParams();
   const navigate = useNavigate();
 
-  const { blogs }: BlogState[] | any = useSelector((state: RootState) => state.blogs);
+  const { blogs }: BlogState[] | any = useSelector((state: RootState) => state.posts);
   const blog = blogs.find((b: any) => b.id === id);
 
 

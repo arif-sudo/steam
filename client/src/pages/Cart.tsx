@@ -9,6 +9,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import Navbar0 from '../components/Navbar0'
 import { useAppSelector } from '../store'
+import ScrollToTop from '../components/ScrollToTop'
 
 const Cart = () => {
     const { lang } = useAppSelector(state => state.auth)
@@ -33,6 +34,7 @@ const Cart = () => {
         : (
             <div id='cart'>
                 <Navbar0 />
+                <ScrollToTop />
                 <Container className='mt-5' >
                     <Toast ref={toastRemove} />
                     <Row className="d-flex justify-content-center mt-5">
