@@ -19,16 +19,16 @@
 .navl{
     color: cornflowerblue;
 }
-#profile {
+.profile {
     position: relative;
     display: flex;
     align-items: center;
     span {
         position: absolute;
-        left: 50px;
-        top: 6px;
+        top: 3px;
+        margin-left: 3px;
         color: white !important;
-        font-size: 12px;
+        font-size: 13px;
         color: cornflowerblue !important;
     }
 }

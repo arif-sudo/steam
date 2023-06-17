@@ -44,12 +44,12 @@ const App:FC = () => {
             <Routes>
               <Route path='/' element={user.isAuth ? <Main /> : nl} />
               <Route path='/login' element={ user.isAuth ? <Navigate to='/' /> : <Login />} /> 
-              <Route path='/about' element={<About /> } /> 
-              <Route path='/support' element={<Support />} /> 
-              <Route path='/support/:id' element={<SupportDetails />} /> 
-              <Route path='/games' element={<Games />} /> 
-              <Route path='/wishlist' element={<Wishlist />} /> 
-              <Route path='/cart' element={<Cart />} /> 
+              <Route path='/about' element={user.isAuth ? <About /> : nl } /> 
+              <Route path='/support' element={user.isAuth ? <Support /> : nl} /> 
+              <Route path='/support/:id' element={user.isAuth ? <SupportDetails /> : nl} /> 
+              <Route path='/games' element={user.isAuth ? <Games /> : nl} /> 
+              <Route path='/wishlist' element={user.isAuth ? <Wishlist /> : nl} /> 
+              <Route path='/cart' element={user.isAuth ? <Cart /> : nl} /> 
               <Route path='/blog' element={user.user.isActivated ? <BlogList /> : <h1>Activate your email</h1>} /> 
               <Route path='/addblog' element={user.user.isActivated ? <AddBlog /> : <h1>Activate your email</h1>} /> 
               <Route path='/admin' element={user.user.isActivated ? <Dashboard /> : <h1>Activate your email</h1>} />

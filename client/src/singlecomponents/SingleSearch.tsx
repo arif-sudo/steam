@@ -1,6 +1,7 @@
 import React from 'react'
 import {  Card } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { useAppSelector } from '../store'
 
 interface PropType {
     title: string;
@@ -10,6 +11,8 @@ interface PropType {
 
 
 const SingleCard: React.FC<PropType> = (props) => {
+    const { lang } = useAppSelector(state => state.auth);
+    const t = lang === 'en';
     return (
         <div className='col-6 col-md-4 col-lg-3 '>
             <LinkContainer to="/about" >
@@ -18,7 +21,7 @@ const SingleCard: React.FC<PropType> = (props) => {
                     <Card.Body>
                         <h5>{props.title}</h5>
                         <p>
-                            Price: {props.price}
+                            {t?"Price":"Qiymət"}: {props.price}
                         </p>
                     </Card.Body>
                 </Card>

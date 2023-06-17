@@ -6,10 +6,12 @@ import Hero2 from '../components/Hero2'
 import Hero3 from '../components/Hero3'
 import SearchSection from '../components/SearchSection'
 import Navbar0 from '../components/Navbar0'
+import ScrollToTop from '../components/ScrollToTop'
 
 const Main = () => {
   return (
     <>
+      <ScrollToTop />
       <Navbar0 />
       <Feature />
       <Search />
